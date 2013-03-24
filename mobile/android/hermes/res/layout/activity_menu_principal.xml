@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    tools:context=".MenuPrincipal" >
+
+    <Button
+        android:id="@+id/btn_audio_to_libras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="right"
+        android:layout_marginLeft="20dp"
+        android:text="@string/activity_menu_principal_btn_audio_libras" />
+
+    <Button
+        android:id="@+id/btn_image_to_audio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/activity_menu_principal_btn_imagem_audio" />
+
+    <Button
+        android:id="@+id/btn_text_to_audio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="left"
+        android:layout_marginRight="20dp"
+        android:text="@string/activity_menu_principal_btn_text_audio" />
+
+</RelativeLayout>

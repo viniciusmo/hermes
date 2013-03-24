@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">hermes</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_texto_audio">TextoAudio</string>
+    <string name="activity_texto_audio_btn_falar">Falar</string>
+    <string name="activity_texto_audio_hint_text">Digite seu texto</string>
+    <string name="title_activity_menu_principal">MenuPrincipal</string>
+    <string name="activity_menu_principal_btn_text_audio">Texto->Audio</string>
+    <string name="activity_menu_principal_btn_imagem_audio">Imagem->Audio</string>
+    <string name="activity_menu_principal_btn_audio_libras">Audio->Libras</string>
+
+</resources>
