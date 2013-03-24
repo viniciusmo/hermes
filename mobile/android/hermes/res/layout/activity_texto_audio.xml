@@ -6,6 +6,7 @@
     tools:context=".TextAudio" >
 
     <EditText
+        android:id="@+id/text_to_audio"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="20dp"
@@ -15,10 +16,11 @@
         android:inputType="text" />
 
     <Button
+        android:id="@+id/text_btn_image_to_audio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginRight="20dp"
-        android:hint="@string/activity_texto_audio_hint_text" />
+        android:hint="@string/activity_texto_audio_btn_falar" />
 
 </LinearLayout>

@@ -17,6 +17,8 @@ public final class R {
         public static final int btn_audio_to_libras=0x7f060000;
         public static final int btn_image_to_audio=0x7f060001;
         public static final int btn_text_to_audio=0x7f060002;
+        public static final int text_btn_image_to_audio=0x7f060004;
+        public static final int text_to_audio=0x7f060003;
     }
     public static final class layout {
         public static final int activity_menu_principal=0x7f030000;

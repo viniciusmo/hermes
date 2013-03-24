@@ -17,7 +17,7 @@ tmp/*
 #android specific
 *.jar
 *.apk
-*mobile/android/hermes/bin/resources.ap_
+mobile/android/hermes/bin/resources.ap_
 *mobile/android/bin/
 
 
