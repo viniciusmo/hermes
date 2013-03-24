@@ -1,10 +1,12 @@
 package com.hermes.view;
 
+import java.net.URLEncoder;
+
 import android.app.Activity;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -14,7 +16,7 @@ import com.hermes.R;
 
 public class TextoAudio extends Activity implements
 		android.view.View.OnClickListener {
-	private static final String AUDIO_PATH = "http://127.0.0.1:3000/text/converter?phrase=";
+	private static final String AUDIO_PATH = "http://10.0.2.2:3000/text/converter?phrase=";
 	private MediaPlayer mediaPlayer;
 
 	private Button btnTextToAudio;
@@ -33,22 +35,25 @@ public class TextoAudio extends Activity implements
 	@Override
 	public void onClick(View v) {
 		try {
-			playAudio(getURL());
+			String url = getURL();
+			Log.i(this.getClass().getSimpleName(),String.format("A url enviada foi %s", url));
+			playAudio(url);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	private String getURL() {
-		return AUDIO_PATH + textToAudio.getText().toString();
+		String text = textToAudio.getText().toString();
+		String textEscaped = URLEncoder.encode(text);
+		return AUDIO_PATH + textEscaped;
 	}
 
 	private void playAudio(String url) throws Exception {
 		mediaPlayer = new MediaPlayer();
 		mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-		mediaPlayer.setDataSource(this, Uri.parse(url));
+		mediaPlayer.setDataSource(url);
 		mediaPlayer.prepare();
 		mediaPlayer.start();
-
 	}
 }
