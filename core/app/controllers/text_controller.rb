@@ -1,3 +1,4 @@
+#http://localhost:3000/text/converter?phrase=teste
 class TextController < ApplicationController
   def converter
    	 phrase = params[:phrase]
