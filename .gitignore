@@ -6,7 +6,7 @@
 *.out
 .metadata/
 *.settings/
-
+core/config/database.yml
 
 #rails specific
 *.sqlite3
