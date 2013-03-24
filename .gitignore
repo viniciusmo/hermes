@@ -14,4 +14,10 @@ config/database.yml
 log/*
 tmp/*
 
+#android specific
+*.jar
+*.apk
+*mobile/android/hermes/bin/resources.ap_
+*mobile/android/bin/
+
 
