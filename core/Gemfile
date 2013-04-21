@@ -36,3 +36,7 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+# To use speech audio -> texto
+gem 'speech2text'
+gem 'pg'
