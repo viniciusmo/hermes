@@ -1,4 +1,7 @@
 Core::Application.routes.draw do
+  resources :users
+
+
   get "text/text"
 
   # The priority is based upon order of creation:
