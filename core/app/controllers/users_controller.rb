@@ -22,7 +22,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @result.message = t(:sucess)
         @result.status = true
-        @result.data = @user
+        @result.data = @user.to_json(:except => :password)
     rescue ActiveRecord::RecordNotFound => e
         @result.message = t(:user_not_found)
         @result.status = false
@@ -74,11 +74,19 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+    @result = Result.new
+    begin
+      @user = User.find(params[:id])
+      @user.destroy
+      @result.message = t(:sucess)
+      @result.status = true
+    rescue ActiveRecord::RecordNotFound => e
+        @result.message = t(:error)
+        @result.status = false
+        @result.data = e
+    end
     respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
+      format.any { render :json => @result }
     end
   end
 end
