@@ -4,15 +4,15 @@ class UsersController < ApplicationController
     @users = User.all
     @result = Result.new
     if @users.count > 0 then
-        @result.message = "Sucesso"
+        @result.message = t(:sucess)
         @result.status = true
-        @result.data = @users
+        @result.data = @users.to_json(:except => :password)
     else
-        @result.message = "Fail"
+        @result.message = t(:error)
         @result.status = false
     end
     respond_to do |format|
-      format.any { render :json => @users.to_json(:except => :password)}
+      format.any { render :json => @result }
     end
   end
 
@@ -20,11 +20,11 @@ class UsersController < ApplicationController
     @result = Result.new
     begin
         @user = User.find(params[:id])
-        @result.message = "Sucesso"
+        @result.message = t(:sucess)
         @result.status = true
         @result.data = @user
     rescue ActiveRecord::RecordNotFound => e
-        @result.message = "Usuario nao encontrado"
+        @result.message = t(:user_not_found)
         @result.status = false
     end
     respond_to do |format|
@@ -39,10 +39,10 @@ class UsersController < ApplicationController
     @user.email = params[:email]
     @user.password = params[:password]
     if @user.save
-        @result.message = "Sucesso"
+        @result.message = t(:sucess)
         @result.status = true
     else
-        @result.message = "Ocorreu um erro"
+        @result.message = t(:error)
         @result.status = false
         @result.data = @user.errors
     end
@@ -56,16 +56,17 @@ class UsersController < ApplicationController
     begin
         @user = User.find(params[:id])
         if @user.update_attributes name: params[:name], email: params[:email], password: params[:password] then
-            @result.message = "Sucesso"
+            @result.message = t(:sucess)
             @result.status = true
         else
-            @result.message = "Nao foi possivel realizar o update do usuario"
+            @result.message = t(:error)
             @result.status = false
             @result.data = @user.errors
         end
     rescue ActiveRecord::RecordNotFound => e
-        @result.message = "Usuario nao encontrado"
+        @result.message = t(:error)
         @result.status = false
+        @result.data = e
     end
     respond_to do |format|
       format.any { render :json => @result }
