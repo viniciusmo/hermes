@@ -1,2 +1,0 @@
-curl -d "name=Rafael%20Sagula&email=nickzaoo@gmail.com&password=123" http://0.0.0.0:3000/users
-curl -X PUT -d "name=Rafael%20Sagula&email=nickzaoo@gmail.com&password=123" http://0.0.0.0:3000/users/1
