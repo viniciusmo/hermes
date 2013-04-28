@@ -5,7 +5,6 @@ class CreateBoards < ActiveRecord::Migration
       t.integer :user_id
       t.timestamps
     end
-
     add_index(:boards , :user_id)
   end
 end
