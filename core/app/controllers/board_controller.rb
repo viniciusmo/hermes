@@ -16,6 +16,22 @@ class BoardController < ApplicationController
     end
   end
 
+  def show
+    @result = Result.new
+    begin
+        @user = User.find(params[:id])
+        @result.message = t(:sucess)
+        @result.status = true
+        @result.data = @user.to_json(:except => :password)
+    rescue ActiveRecord::RecordNotFound => e
+        @result.message = t(:user_not_found)
+        @result.status = false
+    end
+    respond_to do |format|
+      format.any { render :json => @result }
+    end
+  end
+
   def create
     @result = Result.new
     @board = Board.new
@@ -34,4 +50,42 @@ class BoardController < ApplicationController
     end
   end
 
+   def update
+    @result = Result.new
+    begin
+        @board = Board.find(params[:id])
+        if @board.update_attributes name: params[:name] then
+            @result.message = t(:sucess)
+            @result.status = true
+        else
+            @result.message = t(:error)
+            @result.status = false
+            @result.data = @user.errors
+        end
+    rescue ActiveRecord::RecordNotFound => e
+        @result.message = t(:error)
+        @result.status = false
+        @result.data = e
+    end
+    respond_to do |format|
+      format.any { render :json => @result }
+    end
+  end
+
+  def destroy
+    @result = Result.new
+    begin
+      @board = Board.find(params[:id])
+      @board.destroy
+      @result.message = t(:sucess)
+      @result.status = true
+    rescue ActiveRecord::RecordNotFound => e
+        @result.message = t(:error)
+        @result.status = false
+        @result.data = e
+    end
+    respond_to do |format|
+      format.any { render :json => @result }
+    end
+  end
 end
