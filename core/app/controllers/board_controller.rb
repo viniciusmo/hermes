@@ -1,7 +1,7 @@
 class BoardController < ApplicationController
   
   def index
-    @boards = Board.where(["user_id = ?",params[:user_id]])
+    @boards = Board.find_all_by_user_id params[:user_id]
     @result = Result.new
     if @boards.count > 0 then
         @result.message = t(:sucess)
