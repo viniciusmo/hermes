@@ -40,3 +40,4 @@ gem 'jquery-rails'
 # To use speech audio -> texto
 gem 'speech2text'
 gem 'pg'
+gem 'factory_girl'
