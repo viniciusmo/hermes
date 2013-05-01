@@ -5,3 +5,5 @@ en:
   sucess: "Sucess"
   error: "Error"
   user_not_found: "User not found"
+  board_not_found: "Board not found"
+  action_not_found: "Action not found"
