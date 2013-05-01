@@ -2,7 +2,7 @@ Core::Application.routes.draw do
   resources :user do
      resources :board 
   end
-
+  resources :actions
 
   get "text/text"
 

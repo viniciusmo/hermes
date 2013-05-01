@@ -21,7 +21,7 @@ class ActionsController < ApplicationController
 			@action = Action.find(params[:id])
 			@result.message = t(:sucess)
 			@result.status = true
-			@result.data = @user
+			@result.data = @action
 		rescue ActiveRecord::RecordNotFound => e
 			@result.message = t(:action_not_found)
 			@result.status = false
