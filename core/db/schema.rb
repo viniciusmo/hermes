@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130428125525) do
+ActiveRecord::Schema.define(:version => 20130501005815) do
+
+  create_table "actions", :force => true do |t|
+    t.string  "path_image"
+    t.integer "board_id"
+    t.string  "path_sound"
+    t.integer "next_board_id"
+    t.string  "type"
+  end
+
+  add_index "actions", ["board_id"], :name => "index_actions_on_board_id"
 
   create_table "boards", :force => true do |t|
     t.string  "name"
