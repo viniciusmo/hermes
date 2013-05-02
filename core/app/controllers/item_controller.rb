@@ -1,11 +1,12 @@
-class ActionsController < ApplicationController
+class ItemController < ApplicationController
+
 	def index
-		@actions = Action.all
+		@itens = ItemBoard.all
 		@result = Result.new
-		if @actions.count > 0 then
+		if @itens.count > 0 then
 			@result.message = t(:sucess)
 			@result.status = true
-			@result.data = @actions
+			@result.data = @itens
 		else
 			@result.message = t(:error)
 			@result.status = false
@@ -18,12 +19,12 @@ class ActionsController < ApplicationController
 	def show
 		@result = Result.new
 		begin
-			@action = Action.find(params[:id])
+			@item = Item.find(params[:id])
 			@result.message = t(:sucess)
 			@result.status = true
-			@result.data = @action
+			@result.data = @item
 		rescue ActiveRecord::RecordNotFound => e
-			@result.message = t(:action_not_found)
+			@result.message = t(:item_not_found)
 			@result.status = false
 		end
 		respond_to do |format|
@@ -33,19 +34,17 @@ class ActionsController < ApplicationController
 
 	def create
 		@result = Result.new
-		@board = Board.new
-		@board.name = params[:name]
-		@board.user_id = params[:user_id]
-		if @board.save
+		@item = params[:type].constantize.new(params[:item])
+		if @item.save
 			@result.message = t(:sucess)
 			@result.status = true
 		else
 			@result.message = t(:error)
 			@result.status = false
-			@result.data = @board.errors
+			@result.data = @item.errors
 		end
 		respond_to do |format|
-			format.any { render :json => @result }
+			format.any { render :json => @result}
 		end
 	end
 
@@ -87,4 +86,5 @@ class ActionsController < ApplicationController
 			format.any { render :json => @result }
 		end
 	end
+
 end
