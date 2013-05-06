@@ -1,10 +1,23 @@
 class ItemBoardSound < ItemBoard
-	has_attached_file :image
-	has_attached_file :sound
-	validates :board_id, presence: true
+	attr_accessible :board_id, :image, :sound
+
+	has_attached_file :image ,
+					  :path => "public/image/:id/:filename",
+					  :url => "/image/:id/:filename"
+
+	has_attached_file :sound,
+					  :path => "public/sound/:id/:filename",
+					  :url => "/sound/:id/:filename"
 
 	def as_json(options={})
-  		super(:only => [:image,:sound, :board_id, :path_sound , :id,:type])
+  		super(:only => [:board_id, :id,:type] ,:methods => [:path_image , :path_sound])
 	end
 
+	def path_image
+		"#{Core::Application::HOST}#{self.image.url}"
+	end
+
+	def path_sound
+		self.sound.url
+	end
 end

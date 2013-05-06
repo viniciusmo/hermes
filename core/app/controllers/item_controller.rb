@@ -1,5 +1,3 @@
-require 'uploader.rb'
-
 class ItemController < ApplicationController
 
 	def index
