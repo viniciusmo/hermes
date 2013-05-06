@@ -41,3 +41,5 @@ gem 'jquery-rails'
 gem 'speech2text'
 gem 'pg'
 gem 'factory_girl'
+gem 'paperclip'
+

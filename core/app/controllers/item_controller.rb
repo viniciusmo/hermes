@@ -1,3 +1,5 @@
+require 'uploader.rb'
+
 class ItemController < ApplicationController
 
 	def index
@@ -12,7 +14,7 @@ class ItemController < ApplicationController
 			@result.status = false
 		end
 		respond_to do |format|
-			format.any { render :json => @result }
+			format.any { render :json => @result}
 		end
 	end
 
