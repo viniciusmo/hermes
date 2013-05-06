@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501234057) do
+ActiveRecord::Schema.define(:version => 20130506212811) do
 
   create_table "boards", :force => true do |t|
     t.string  "name"
@@ -21,11 +21,17 @@ ActiveRecord::Schema.define(:version => 20130501234057) do
   add_index "boards", ["user_id"], :name => "index_boards_on_user_id"
 
   create_table "item_boards", :force => true do |t|
-    t.string  "path_image"
-    t.integer "board_id"
-    t.string  "path_sound"
-    t.integer "next_board_id"
-    t.string  "type"
+    t.integer  "board_id"
+    t.integer  "next_board_id"
+    t.string   "type"
+    t.string   "sound_file_name"
+    t.string   "sound_content_type"
+    t.integer  "sound_file_size"
+    t.datetime "sound_updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "item_boards", ["board_id"], :name => "index_item_boards_on_board_id"

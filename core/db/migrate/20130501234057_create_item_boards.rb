@@ -3,11 +3,7 @@ class CreateItemBoards < ActiveRecord::Migration
     create_table :item_boards do |t|
 
       #common
-      t.string   :path_image
       t.integer  :board_id
-
-      # if is a ItemBoardSound
-      t.string   :path_sound
 
       # if is a ItemBoardCall
       t.integer  :next_board_id
