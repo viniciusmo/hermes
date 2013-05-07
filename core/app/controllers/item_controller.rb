@@ -33,7 +33,6 @@ class ItemController < ApplicationController
 	end
 
 	def create
-		puts params[:board_id]
 		@result = Result.new
 		@item = params[:type].constantize.new(params[:item])
 		if @item.save
@@ -52,8 +51,8 @@ class ItemController < ApplicationController
 	def update
 		@result = Result.new
 		begin
-			@board = Board.find(params[:id])
-			if @board.update_attributes name: params[:name] then
+			@item = ItemBoard.find(params[:id])
+			if @item.update_attributes params[:item] then
 				@result.message = t(:sucess)
 				@result.status = true
 			else
@@ -74,8 +73,8 @@ class ItemController < ApplicationController
 	def destroy
 		@result = Result.new
 		begin
-			@board = Board.find(params[:id])
-			@board.destroy
+			@item = ItemBoard.find(params[:id])
+			@item.destroy
 			@result.message = t(:sucess)
 			@result.status = true
 		rescue ActiveRecord::RecordNotFound => e
