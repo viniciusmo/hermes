@@ -33,6 +33,7 @@ class ItemController < ApplicationController
 	end
 
 	def create
+		puts params[:board_id]
 		@result = Result.new
 		@item = params[:type].constantize.new(params[:item])
 		if @item.save
