@@ -1,18 +1,15 @@
 class UsersController < ApplicationController
+  @result
 
   def index
     @users = User.all
-    @result = Result.new
     if @users.count > 0 then
-      @result.message = t(:sucess)
-      @result.status = true
-      @result.data = @users.to_json(:except => :password)
+      @result = Result.new ({:message => t(:sucess),:status => true , :data =>@users.to_json(:except => :password)})
     else
-      @result.message = t(:error)
-      @result.status = false
+      @result = Result.new ({:message => t(:error),:status => false})
     end
     respond_to do |format|
-      format.any { render :json => @result }
+      format.any { render :json => @result}
     end
   end
 
@@ -51,6 +48,11 @@ class UsersController < ApplicationController
       @result.data = @user.errors
     end
     respond_to do |format|
+      if @user.errors.any?
+          format.html { render action: "new" }
+      else
+          format.html { redirect_to @user, notice: 'Seu registro foi concluido com sucesso' }
+      end
       format.json { render :json => @result }
     end
   end
@@ -59,7 +61,7 @@ class UsersController < ApplicationController
     @result = Result.new
     begin
       @user = User.find(params[:id])
-      if @user.update_attributes name: params[:name], email: params[:email], password: params[:password] then
+      if @user.update_attributes params[:user] then
         @result.message = t(:sucess)
         @result.status = true
       else

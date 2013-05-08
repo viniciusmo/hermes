@@ -1,5 +1,5 @@
 class Result
-	attr_accessor :message
-	attr_accessor :status
-	attr_accessor :data
+	def initialize(args)
+ 	 	args.keys.each { |name| instance_variable_set "@" + name.to_s, args[name] }
+	end
 end
