@@ -1,4 +1,4 @@
-class BoardController < ApplicationController
+class BoardsController < ApplicationController
 
   def index
     @boards = Board.find_all_by_user_id params[:user_id]

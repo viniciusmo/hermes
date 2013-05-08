@@ -1,6 +1,6 @@
 Core::Application.routes.draw do
-  resources :user do
-     resources :board 
+  resources :users do
+     resources :boards
   end
   resources :item
 

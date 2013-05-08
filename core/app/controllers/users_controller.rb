@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
   def index
     @users = User.all
@@ -32,12 +32,16 @@ class UserController < ApplicationController
     end
   end
 
+  def new
+    @user = User.new
+    respond_to do |format|
+      format.html # new.html.erb
+    end
+  end
+
   def create
     @result = Result.new
-    @user = User.new
-    @user.name = params[:name]
-    @user.email = params[:email]
-    @user.password = params[:password]
+    @user = User.new(params[:user])
     if @user.save
       @result.message = t(:sucess)
       @result.status = true
@@ -47,7 +51,7 @@ class UserController < ApplicationController
       @result.data = @user.errors
     end
     respond_to do |format|
-      format.any { render :json => @result }
+      format.json { render :json => @result }
     end
   end
 
