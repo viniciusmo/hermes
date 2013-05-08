@@ -38,9 +38,10 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       if @user.errors.any?
-          format.html { render action: "new" }
+          format.html { render :new }
       else
-          format.html { redirect_to @user, notice: 'Seu registro foi concluido com sucesso' }
+          format.html { render :show 
+                        flash[:notice]='Seu registro foi concluido com sucesso' }
       end
       format.json { render :json => @result }
     end
