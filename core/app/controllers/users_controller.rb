@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  @result
+  attr_accessor :result
 
   def index
     @users = User.all
@@ -14,15 +14,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @result = Result.new
     begin
       @user = User.find(params[:id])
-      @result.message = t(:sucess)
-      @result.status = true
-      @result.data = @user.to_json(:except => :password)
+      @result = Result.new ({:message => t(:sucess),:status => true , :data =>@user.to_json(:except => :password)})
     rescue ActiveRecord::RecordNotFound => e
-      @result.message = t(:user_not_found)
-      @result.status = false
+      @result = Result.new ({:message => t(:user_not_found),:status => false})
     end
     respond_to do |format|
       format.any { render :json => @result }
@@ -31,21 +27,14 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    respond_to do |format|
-      format.html # new.html.erb
-    end
   end
 
   def create
-    @result = Result.new
     @user = User.new(params[:user])
     if @user.save
-      @result.message = t(:sucess)
-      @result.status = true
+        @result = Result.new ({:message => t(:sucess),:status => true})
     else
-      @result.message = t(:error)
-      @result.status = false
-      @result.data = @user.errors
+        @result = Result.new ({:message => t(:error),:status => false , :data => @user.errors})
     end
     respond_to do |format|
       if @user.errors.any?
