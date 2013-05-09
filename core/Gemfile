@@ -42,3 +42,4 @@ gem 'speech2text'
 gem 'pg'
 gem 'factory_girl'
 gem 'paperclip'
+gem "recaptcha", :require => "recaptcha/rails"

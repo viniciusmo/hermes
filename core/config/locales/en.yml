@@ -7,3 +7,9 @@ en:
   user_not_found: "User not found"
   board_not_found: "Board not found"
   item_not_found: "Action not found"
+  user_save_with_sucess: "Cadastro realizado com sucesso!"
+  error_captcha: "Captcha incorreto"
+  errors:
+    messages:
+      blank: "necessita ser preenchido"
+      too_short: " minímo de %{count} caracteres"

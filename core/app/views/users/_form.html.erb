@@ -1,8 +1,8 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> erros:</h2>
-      <ul>
+      <h2><%= pluralize(@user.errors.count, "erros") %></h2>
+      <ul>  
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
@@ -22,7 +22,8 @@
     <%= f.label :Senha %><br />
     <%= f.password_field :password %>
   </div>
+  <%=recaptcha_tags%>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit  "Registrar"%>
   </div>
 <% end %>

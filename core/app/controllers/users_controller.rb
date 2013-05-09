@@ -31,17 +31,20 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    if @user.save
-        @result = Result.new ({:message => t(:sucess),:status => true})
-    else
-        @result = Result.new ({:message => t(:error),:status => false , :data => @user.errors})
+    if verify_recaptcha(:model => @user, :message => t(:error_captcha)) 
+        if @user.save
+          @result = Result.new ({:message => t(:sucess),:status => true})
+        else
+          @result = Result.new ({:message => t(:error),:status => false , :data => @user.errors})
+        end
     end
+
     respond_to do |format|
       if @user.errors.any?
           format.html { render :new }
       else
           format.html { render :show 
-                        flash[:notice]='Seu registro foi concluido com sucesso' }
+                        flash[:notice]=t(:user_save_with_sucess) }
       end
       format.json { render :json => @result }
     end
