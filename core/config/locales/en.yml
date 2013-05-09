@@ -13,3 +13,4 @@ en:
     messages:
       blank: "necessita ser preenchido"
       too_short: " minímo de %{count} caracteres"
+      confirmation: " não são iguais"
