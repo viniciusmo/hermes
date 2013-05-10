@@ -16,4 +16,10 @@ class AuthenticateController < ApplicationController
         end
 	end
 
+    def logout
+        session[:user] = nil
+        flash[:notice] = t(:notice_logout_sucess)
+        render :index
+    end
+
 end

@@ -9,11 +9,19 @@ class User < ActiveRecord::Base
   has_many :boards
   
   before_save :encrypt_password
+  after_save :create_and_populate_board
 
   def encrypt_password
   	 if self.password.present? 
   	 	self.password = Digest::MD5.hexdigest(self.password)
   	 end
+  end
+
+  def create_and_populate_board
+     Board.create  name: "principal",
+                   column: 3,
+                   line: 3,
+                   user_id: self.id
   end
 
 end

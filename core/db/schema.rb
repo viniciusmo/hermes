@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(:version => 20130506212811) do
 
   create_table "boards", :force => true do |t|
     t.string  "name"
+    t.integer "column"
+    t.integer "line"
     t.integer "user_id"
   end
 

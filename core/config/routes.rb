@@ -1,8 +1,8 @@
+
 Core::Application.routes.draw do
-  resources :users do
-     resources :boards
-  end
-  resources :item
+  resources :users
+  resources :item_boards
+  resources :boards
 
   get "text/text"
 

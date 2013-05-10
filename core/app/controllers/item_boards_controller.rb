@@ -1,4 +1,4 @@
-class ItemController < ApplicationController
+class ItemBoardsController < ApplicationController
 
 	def index
 		@itens = ItemBoard.all

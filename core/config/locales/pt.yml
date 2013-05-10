@@ -10,6 +10,8 @@ pt:
   user_save_with_sucess: "Cadastro realizado com sucesso!"
   error_captcha: "Captcha incorreto"
   error_login: "Email ou senha incorreto(s)"
+  error_restrict_area: "Área restrita"
+  notice_logout_sucess: "Logout realizado com sucesso"
   errors:
     messages:
       blank: "necessita ser preenchido"
