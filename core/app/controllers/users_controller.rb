@@ -38,13 +38,12 @@ class UsersController < ApplicationController
           @result = Result.new ({:message => t(:error),:status => false , :data => @user.errors})
         end
     end
-
     respond_to do |format|
       if @user.errors.any?
           format.html { render :new }
       else
-          format.html { render :show 
-                        flash[:notice]=t(:user_save_with_sucess) }
+          flash[:notice]=t(:user_save_with_sucess)
+          format.html { redirect_to :controller => :authenticate ,:action => :index}
       end
       format.json { render :json => @result }
     end
