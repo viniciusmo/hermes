@@ -1,15 +1,11 @@
 class BoardsController < ApplicationController
 
   def index
-    @boards = Board.find_all_by_user_id params[:user_id]
-    @result = Result.new
+    @boards = Board.all
     if @boards.count > 0 then
-      @result.message = t(:sucess)
-      @result.status = true
-      @result.data = @boards
+      @result = Result.new ({:message => t(:sucess),:status => true , :data =>@boards})
     else
-      @result.message = t(:error)
-      @result.status = false
+      @result = Result.new ({:message => t(:error),:status => false})
     end
     respond_to do |format|
       format.any { render :json => @result }

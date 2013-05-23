@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
-  attr_accessor :result
   before_filter :authenticate_user , :except => [:new,:create]
-
-
   def index
     @users = User.all
     if @users.count > 0 then
