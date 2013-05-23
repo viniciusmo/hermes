@@ -40,6 +40,7 @@ gem 'jquery-rails'
 # To use speech audio -> texto
 gem 'speech2text'
 gem 'pg'
+# To use for test
 gem 'factory_girl'
 gem 'paperclip'
 gem "recaptcha", :require => "recaptcha/rails"
