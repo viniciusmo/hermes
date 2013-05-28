@@ -42,5 +42,7 @@ gem 'speech2text'
 gem 'pg'
 # To use for test
 gem 'factory_girl'
+
+# To use upload images
 gem 'paperclip'
 gem "recaptcha", :require => "recaptcha/rails"
