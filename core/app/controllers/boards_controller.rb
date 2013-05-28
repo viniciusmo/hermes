@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
   def index
     @board = Board.find_by_user_id(params[:user_id])
     if @board then
-      @result = Result.new ({:message => t(:sucess),:status => true , :data =>@board.to_json(:items => @board.items)})
+      @result = Result.new ({:message => t(:sucess),:status => true , :boards =>@board.to_json(:item_boards => @board.item_boards)})
     else
       @result = Result.new ({:message => t(:error),:status => false})
     end
