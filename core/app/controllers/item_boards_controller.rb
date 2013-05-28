@@ -1,5 +1,6 @@
 class ItemBoardsController < ApplicationController
-
+	before_filter :authenticate_user
+ 
 	def index
 		@itens = ItemBoard.all
 		@result = Result.new

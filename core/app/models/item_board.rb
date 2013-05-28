@@ -13,6 +13,7 @@ class ItemBoard < ActiveRecord::Base
 					  :default_url=> "/sound_default.mp3"
 
 	validates :board_id , presence: true
+	belongs_to :board
 	
 	def as_json(options={})
   		super(:only => [:board_id, :id,:type, :next_board_id] ,:methods => [:path_image , :path_sound])
