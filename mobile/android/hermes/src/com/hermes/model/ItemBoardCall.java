@@ -35,6 +35,5 @@ public class ItemBoardCall extends ItemBoard implements ItemActionable,
 				ImageSound.class);
 		intent.putExtra("board", nextBoard);
 		ApplicationContext.context().startActivity(intent);
-
 	}
 }
