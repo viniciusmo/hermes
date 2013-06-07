@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal"
-    tools:context=".MenuPrincipal" >
+    tools:context=".MainMenu" >
 
     <Button
         android:id="@+id/btn_audio_to_libras"

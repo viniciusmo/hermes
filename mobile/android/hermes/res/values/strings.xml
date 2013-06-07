@@ -11,5 +11,7 @@
     <string name="activity_menu_principal_btn_text_audio">Texto->Audio</string>
     <string name="activity_menu_principal_btn_imagem_audio">Imagem->Audio</string>
     <string name="activity_menu_principal_btn_audio_libras">Audio->Libras</string>
+    <string name="title_activity_imagesound">MainActivity</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

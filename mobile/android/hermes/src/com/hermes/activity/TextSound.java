@@ -1,4 +1,4 @@
-package com.hermes.view;
+package com.hermes.activity;
 
 import java.net.URLEncoder;
 
@@ -14,11 +14,10 @@ import android.widget.EditText;
 
 import com.hermes.R;
 
-public class TextoAudio extends Activity implements
+public class TextSound extends Activity implements
 		android.view.View.OnClickListener {
 	private static final String AUDIO_PATH = "http://10.0.2.2:3000/text/converter?phrase=";
 	private MediaPlayer mediaPlayer;
-
 	private Button btnTextToAudio;
 	private EditText textToAudio;
 
@@ -26,7 +25,7 @@ public class TextoAudio extends Activity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.activity_texto_audio);
+		setContentView(R.layout.activity_text_audio);
 		btnTextToAudio = (Button) findViewById(R.id.text_btn_image_to_audio);
 		textToAudio = (EditText) findViewById(R.id.text_to_audio);
 		btnTextToAudio.setOnClickListener(this);
@@ -36,7 +35,8 @@ public class TextoAudio extends Activity implements
 	public void onClick(View v) {
 		try {
 			String url = getURL();
-			Log.i(this.getClass().getSimpleName(),String.format("A url enviada foi %s", url));
+			Log.i(this.getClass().getSimpleName(),
+					String.format("A url enviada foi %s", url));
 			playAudio(url);
 		} catch (Exception e) {
 			e.printStackTrace();

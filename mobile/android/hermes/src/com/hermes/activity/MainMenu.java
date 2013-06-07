@@ -1,4 +1,4 @@
-package com.hermes.view;
+package com.hermes.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.hermes.R;
 
-public class MenuPrincipal extends Activity implements
+public class MainMenu extends Activity implements
 		android.view.View.OnClickListener {
 	private Button btnTextToAudio;
 	private Button btnImageToAudio;
@@ -19,7 +19,7 @@ public class MenuPrincipal extends Activity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.activity_menu_principal);
+		setContentView(R.layout.activity_main_menu);
 		initComponents();
 		setListenersAllButtons();
 	}
@@ -40,13 +40,13 @@ public class MenuPrincipal extends Activity implements
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_audio_to_libras:
-			startActivity(new Intent(this, TextoAudio.class));
+			startActivity(new Intent(this, TextSound.class));
 			break;
 		case R.id.btn_text_to_audio:
-			startActivity(new Intent(this, TextoAudio.class));
+			startActivity(new Intent(this, TextSound.class));
 			break;
 		case R.id.btn_image_to_audio:
-			startActivity(new Intent(this, TextoAudio.class));
+			startActivity(new Intent(this, ImageSound.class));
 			break;
 		}
 	}
