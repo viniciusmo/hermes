@@ -8,6 +8,8 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.hermes.R;
+import com.hermes.model.repository.BoardRepository;
+import com.hermes.tools.ApplicationContext;
 
 public class MainMenu extends Activity implements
 		android.view.View.OnClickListener {
@@ -19,6 +21,7 @@ public class MainMenu extends Activity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		ApplicationContext.setContext(this);
 		setContentView(R.layout.activity_main_menu);
 		initComponents();
 		setListenersAllButtons();
@@ -46,7 +49,9 @@ public class MainMenu extends Activity implements
 			startActivity(new Intent(this, TextSound.class));
 			break;
 		case R.id.btn_image_to_audio:
-			startActivity(new Intent(this, ImageSound.class));
+			Intent intent = new Intent(this, ImageSound.class);
+			intent.putExtra("board", new BoardRepository().createMainBoard());
+			startActivity(intent);
 			break;
 		}
 	}

@@ -1,10 +1,17 @@
 package com.hermes.model;
 
-public class ItemBoard implements ItemActionable {
+import java.io.Serializable;
+
+import com.hermes.tools.ApplicationContext;
+import com.hermes.tools.SoundTools;
+
+public class ItemBoard implements ItemActionable, Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private String pathSound;
 	private String pathImage;
 
-	public ItemBoard(String pathSound, String pathImage) {
+	public ItemBoard(String pathImage, String pathSound) {
 		this.pathSound = pathSound;
 		this.pathImage = pathImage;
 	}
@@ -13,21 +20,12 @@ public class ItemBoard implements ItemActionable {
 		return pathSound;
 	}
 
-	public void setPathSound(String pathSound) {
-		this.pathSound = pathSound;
-	}
-
 	public String getPathImage() {
 		return pathImage;
 	}
 
-	public void setPathImage(String pathImage) {
-		this.pathImage = pathImage;
-	}
-
 	@Override
 	public void doAction() {
-
+		SoundTools.playFileFromAssets(pathSound, ApplicationContext.context());
 	}
-
 }

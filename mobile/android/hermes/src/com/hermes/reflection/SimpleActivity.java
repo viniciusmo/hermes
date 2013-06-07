@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.hermes.log.Log;
+import com.hermes.tools.Log;
 
 public class SimpleActivity extends Activity {
 
