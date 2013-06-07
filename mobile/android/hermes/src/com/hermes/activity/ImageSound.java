@@ -12,10 +12,10 @@ import android.widget.LinearLayout;
 
 import com.hermes.R;
 import com.hermes.model.Board;
+import com.hermes.model.repository.BoardRepository;
 import com.hermes.reflection.Id;
 import com.hermes.reflection.Layout;
 import com.hermes.reflection.SimpleActivity;
-import com.hermes.repository.BoardRepository;
 
 @Layout(R.layout.activity_image_sound)
 public class ImageSound extends SimpleActivity {
@@ -35,19 +35,22 @@ public class ImageSound extends SimpleActivity {
 	}
 
 	private void fillViewWithBoard() throws IOException {
-
+		int count = 0;
 		for (int i = 0; i < 3; i++) {
 			LinearLayout boardLineView = (LinearLayout) getLayoutInflater()
-					.inflate(R.layout.item_line_board, null);
+					.inflate(R.layout.item_line_board, boardView, false);
 			for (int j = 0; j < 4; j++) {
 				ImageView boardItemView = (ImageView) getLayoutInflater()
-						.inflate(R.layout.item_image_board, null);
+						.inflate(R.layout.item_image_board, boardLineView,
+								false);
 				boardLineView.addView(boardItemView);
 				AssetManager assetManager = getAssets();
-				InputStream istr = assetManager.open("1_estou_com_fome.jpg");
+				InputStream istr = assetManager.open(mainBoard.getItens()
+						.get(count).getPathSound());
 				Bitmap bitmap = BitmapFactory.decodeStream(istr);
 				istr.close();
 				boardItemView.setImageBitmap(bitmap);
+				count++;
 			}
 			boardView.addView(boardLineView);
 		}
