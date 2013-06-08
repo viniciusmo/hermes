@@ -17,7 +17,6 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.hermes.activity.MainMenu"
-            android:label="@string/title_activity_menu_principal"
             android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,17 +26,14 @@
         </activity>
         <activity
             android:name="com.hermes.activity.TextSound"
-            android:label="@string/title_activity_texto_audio"
             android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name="com.hermes.activity.SpeechLibras"
-            android:label="@string/title_activity_texto_audio"
             android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name="com.hermes.activity.ImageSound"
-            android:label="@string/title_activity_imagesound"
             android:screenOrientation="landscape" >
         </activity>
     </application>

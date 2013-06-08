@@ -1,5 +1,7 @@
 package com.hermes.libras;
 
+import java.text.Normalizer;
+
 import android.app.Activity;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,7 +18,13 @@ public class PlayerLibras {
 	public PlayerLibras(Activity activity, ImageView imgLibras, String text) {
 		this.activity = activity;
 		this.imgLibras = imgLibras;
-		this.text = text;
+		this.text = removeAccents(text);
+	}
+
+	public String removeAccents(String str) {
+		str = Normalizer.normalize(str, Normalizer.Form.NFD);
+		str = str.replaceAll("[^\\p{ASCII}]", "");
+		return str;
 	}
 
 	private void sleep() {
@@ -44,10 +52,10 @@ public class PlayerLibras {
 		});
 	}
 
-	private void verifyCharacterAndChangeImage(final char character) {
-		if (isBetweenAandZ(character)) {
-			changeImage(character);
-		}
+	public void play() {
+		startAnimation();
+		doAnimation();
+		stopAnimation();
 	}
 
 	public void startAnimation() {
@@ -59,6 +67,20 @@ public class PlayerLibras {
 		});
 	}
 
+	private void doAnimation() {
+		for (int i = 0; i < text.length(); i++) {
+			final char character = text.charAt(i);
+			verifyCharacterAndChangeImage(character);
+			sleep();
+		}
+	}
+
+	private void verifyCharacterAndChangeImage(final char character) {
+		if (isBetweenAandZ(character)) {
+			changeImage(character);
+		}
+	}
+
 	public void stopAnimation() {
 		activity.runOnUiThread(new Runnable() {
 			@Override
@@ -68,13 +90,4 @@ public class PlayerLibras {
 		});
 	}
 
-	public void play() {
-		startAnimation();
-		for (int i = 0; i < text.length(); i++) {
-			final char character = text.charAt(i);
-			verifyCharacterAndChangeImage(character);
-			sleep();
-		}
-		stopAnimation();
-	}
 }

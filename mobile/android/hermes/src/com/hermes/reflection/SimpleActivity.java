@@ -29,6 +29,7 @@ public class SimpleActivity extends Activity {
 		NoTitle title = getClass().getAnnotation(NoTitle.class);
 		if (title != null) {
 			requestWindowFeature(Window.FEATURE_NO_TITLE);
+
 		}
 	}
 
