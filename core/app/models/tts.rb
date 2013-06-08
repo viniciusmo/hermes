@@ -23,6 +23,7 @@ class Tts
 
     def convert_to_audio lang
       url = self.to_url(lang)
+      p url
       open(url, "User-Agent" => Tts.user_agent).read
     end
 

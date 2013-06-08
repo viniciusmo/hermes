@@ -5,6 +5,7 @@ import java.lang.reflect.Field;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Window;
 
 import com.hermes.tools.Log;
 
@@ -14,12 +15,20 @@ public class SimpleActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		try {
+			removeTitleIfIsPresent();
 			fillViewWithLayout();
 			fillFieldsWithSpecificViewId();
 		} catch (IllegalArgumentException e) {
 			Log.e(e.getMessage());
 		} catch (IllegalAccessException e) {
 			Log.e(e.getMessage());
+		}
+	}
+
+	private void removeTitleIfIsPresent() {
+		NoTitle title = getClass().getAnnotation(NoTitle.class);
+		if (title != null) {
+			requestWindowFeature(Window.FEATURE_NO_TITLE);
 		}
 	}
 

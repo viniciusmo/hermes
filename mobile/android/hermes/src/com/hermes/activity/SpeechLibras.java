@@ -17,11 +17,13 @@ import com.hermes.R;
 import com.hermes.libras.PlayerLibras;
 import com.hermes.reflection.Id;
 import com.hermes.reflection.Layout;
+import com.hermes.reflection.NoTitle;
 import com.hermes.reflection.SimpleActivity;
 import com.hermes.tools.ApplicationContext;
 import com.hermes.tools.Log;
 
-@Layout(R.layout.activity_text_libras)
+@NoTitle
+@Layout(R.layout.activity_speech_libras)
 public class SpeechLibras extends SimpleActivity implements OnClickListener {
 	private static final int RESULT_SPEECH = 1;
 	@Id(R.id.btn_speak)

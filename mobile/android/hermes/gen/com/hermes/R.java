@@ -30,17 +30,17 @@ public final class R {
         public static final int board_item=0x7f080008;
         public static final int btn_audio_to_libras=0x7f080001;
         public static final int btn_image_to_audio=0x7f080002;
-        public static final int btn_speak=0x7f080006;
+        public static final int btn_speak=0x7f080004;
         public static final int btn_text_to_audio=0x7f080003;
-        public static final int img_libras=0x7f080007;
-        public static final int text_btn_image_to_audio=0x7f080005;
-        public static final int text_to_audio=0x7f080004;
+        public static final int img_libras=0x7f080005;
+        public static final int text_btn_image_to_audio=0x7f080007;
+        public static final int text_to_audio=0x7f080006;
     }
     public static final class layout {
         public static final int activity_image_sound=0x7f030000;
         public static final int activity_main_menu=0x7f030001;
-        public static final int activity_text_audio=0x7f030002;
-        public static final int activity_text_libras=0x7f030003;
+        public static final int activity_speech_libras=0x7f030002;
+        public static final int activity_text_audio=0x7f030003;
         public static final int item_image_board=0x7f030004;
         public static final int item_line_board=0x7f030005;
     }
