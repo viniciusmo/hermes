@@ -19,6 +19,7 @@ import com.hermes.reflection.Id;
 import com.hermes.reflection.Layout;
 import com.hermes.reflection.SimpleActivity;
 import com.hermes.tools.ApplicationContext;
+import com.hermes.tools.Log;
 
 @Layout(R.layout.activity_text_libras)
 public class SpeechLibras extends SimpleActivity implements OnClickListener {
@@ -35,6 +36,7 @@ public class SpeechLibras extends SimpleActivity implements OnClickListener {
 	}
 
 	private void playLibras(String text) {
+		Log.i(text);
 		PlayerLibras player = new PlayerLibras(this, imgLibras, text);
 		player.play();
 	}
