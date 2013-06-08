@@ -21,7 +21,7 @@ import com.hermes.reflection.SimpleActivity;
 import com.hermes.tools.ApplicationContext;
 
 @Layout(R.layout.activity_text_libras)
-public class TextLibras extends SimpleActivity implements OnClickListener {
+public class SpeechLibras extends SimpleActivity implements OnClickListener {
 	private static final int RESULT_SPEECH = 1;
 	@Id(R.id.btn_speak)
 	private ImageButton btnSpeak;
