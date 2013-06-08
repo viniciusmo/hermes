@@ -12,9 +12,11 @@ import com.hermes.model.Board;
 import com.hermes.model.ItemBoard;
 import com.hermes.reflection.Id;
 import com.hermes.reflection.Layout;
+import com.hermes.reflection.NoTitle;
 import com.hermes.reflection.SimpleActivity;
 import com.hermes.tools.ImageTools;
 
+@NoTitle
 @Layout(R.layout.activity_image_sound)
 public class ImageSound extends SimpleActivity implements OnClickListener {
 	@Id(R.id.board)

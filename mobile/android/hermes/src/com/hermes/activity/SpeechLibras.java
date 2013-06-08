@@ -38,7 +38,7 @@ public class SpeechLibras extends SimpleActivity implements OnClickListener {
 	}
 
 	private void playLibras(String text) {
-		Log.i(text);
+		Log.i(String.format("Texto capturado foi %s", text));
 		PlayerLibras player = new PlayerLibras(this, imgLibras, text);
 		player.play();
 	}

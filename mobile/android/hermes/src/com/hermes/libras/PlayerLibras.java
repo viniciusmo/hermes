@@ -71,13 +71,13 @@ public class PlayerLibras {
 		for (int i = 0; i < text.length(); i++) {
 			final char character = text.charAt(i);
 			verifyCharacterAndChangeImage(character);
-			sleep();
 		}
 	}
 
 	private void verifyCharacterAndChangeImage(final char character) {
 		if (isBetweenAandZ(character)) {
 			changeImage(character);
+			sleep();
 		}
 	}
 
