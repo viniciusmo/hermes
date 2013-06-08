@@ -31,6 +31,11 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
+            android:name="com.hermes.activity.TextLibras"
+            android:label="@string/title_activity_texto_audio"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
             android:name="com.hermes.activity.ImageSound"
             android:label="@string/title_activity_imagesound"
             android:screenOrientation="landscape" >

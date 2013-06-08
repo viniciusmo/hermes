@@ -53,8 +53,7 @@ public class ImageSound extends SimpleActivity implements OnClickListener {
 		ImageView boardItemView = (ImageView) getLayoutInflater().inflate(
 				R.layout.item_image_board, boardLineView, false);
 		boardLineView.addView(boardItemView);
-		Bitmap bitmap = ImageTools.getBitmapOfAssetsFolder(item.getPathImage(),
-				this);
+		Bitmap bitmap = ImageTools.getBitmapOfAssetsFolder(item.getPathImage());
 		boardItemView.setImageBitmap(bitmap);
 		boardItemView.setTag(item);
 		boardItemView.setOnClickListener(this);

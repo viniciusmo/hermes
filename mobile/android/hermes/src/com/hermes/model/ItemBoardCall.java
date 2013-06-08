@@ -25,8 +25,7 @@ public class ItemBoardCall extends ItemBoard implements ItemActionable,
 
 	@Override
 	public void doAction() {
-		SoundTools.playFileFromAssets(getPathSound(),
-				ApplicationContext.context(), this);
+		SoundTools.playFileFromAssets(getPathSound(), this);
 	}
 
 	@Override

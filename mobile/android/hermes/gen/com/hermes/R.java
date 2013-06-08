@@ -21,15 +21,18 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int ic_action_search=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f080007;
+        public static final int action_settings=0x7f080009;
         public static final int board=0x7f080000;
-        public static final int board_item=0x7f080006;
+        public static final int board_item=0x7f080008;
         public static final int btn_audio_to_libras=0x7f080001;
         public static final int btn_image_to_audio=0x7f080002;
+        public static final int btn_speak=0x7f080006;
         public static final int btn_text_to_audio=0x7f080003;
+        public static final int img_libras=0x7f080007;
         public static final int text_btn_image_to_audio=0x7f080005;
         public static final int text_to_audio=0x7f080004;
     }
@@ -37,8 +40,9 @@ public final class R {
         public static final int activity_image_sound=0x7f030000;
         public static final int activity_main_menu=0x7f030001;
         public static final int activity_text_audio=0x7f030002;
-        public static final int item_image_board=0x7f030003;
-        public static final int item_line_board=0x7f030004;
+        public static final int activity_text_libras=0x7f030003;
+        public static final int item_image_board=0x7f030004;
+        public static final int item_line_board=0x7f030005;
     }
     public static final class menu {
         public static final int imagesound=0x7f070000;

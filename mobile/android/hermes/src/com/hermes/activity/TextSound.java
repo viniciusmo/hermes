@@ -45,6 +45,7 @@ public class TextSound extends Activity implements
 
 	private String getURL() {
 		String text = textToAudio.getText().toString();
+		@SuppressWarnings("deprecation")
 		String textEscaped = URLEncoder.encode(text);
 		return AUDIO_PATH + textEscaped;
 	}

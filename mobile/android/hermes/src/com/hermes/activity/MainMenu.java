@@ -43,7 +43,7 @@ public class MainMenu extends Activity implements
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_audio_to_libras:
-			startActivity(new Intent(this, TextSound.class));
+			startActivity(new Intent(this, TextLibras.class));
 			break;
 		case R.id.btn_text_to_audio:
 			startActivity(new Intent(this, TextSound.class));

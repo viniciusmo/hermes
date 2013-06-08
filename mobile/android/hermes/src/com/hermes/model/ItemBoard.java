@@ -2,7 +2,6 @@ package com.hermes.model;
 
 import java.io.Serializable;
 
-import com.hermes.tools.ApplicationContext;
 import com.hermes.tools.SoundTools;
 
 public class ItemBoard implements ItemActionable, Serializable {
@@ -26,6 +25,6 @@ public class ItemBoard implements ItemActionable, Serializable {
 
 	@Override
 	public void doAction() {
-		SoundTools.playFileFromAssets(pathSound, ApplicationContext.context());
+		SoundTools.playFileFromAssets(pathSound);
 	}
 }
