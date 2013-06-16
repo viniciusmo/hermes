@@ -18,13 +18,13 @@ import com.hermes.libras.PlayerLibras;
 import com.hermes.reflection.Id;
 import com.hermes.reflection.Layout;
 import com.hermes.reflection.NoTitle;
-import com.hermes.reflection.SimpleActivity;
+import com.hermes.reflection.AnnotatedActivity;
 import com.hermes.tools.ApplicationContext;
 import com.hermes.tools.Log;
 
 @NoTitle
 @Layout(R.layout.activity_speech_libras)
-public class SpeechLibras extends SimpleActivity implements OnClickListener {
+public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 	private static final int RESULT_SPEECH = 1;
 	@Id(R.id.btn_speak)
 	private ImageButton btnSpeak;

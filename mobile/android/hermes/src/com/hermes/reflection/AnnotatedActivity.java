@@ -9,7 +9,7 @@ import android.view.Window;
 
 import com.hermes.tools.Log;
 
-public class SimpleActivity extends Activity {
+public class AnnotatedActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,6 @@ public class SimpleActivity extends Activity {
 		NoTitle title = getClass().getAnnotation(NoTitle.class);
 		if (title != null) {
 			requestWindowFeature(Window.FEATURE_NO_TITLE);
-
 		}
 	}
 
