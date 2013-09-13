@@ -1,5 +1,6 @@
 package com.hermes.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,7 +34,20 @@ public class TextSound extends AnnotatedActivity implements
 	public void onClick(View v) {
 		disableInputUser();
 		String textForSpeech = textToAudio.getText().toString();
-		Speaker.speack(textForSpeech, Language.PORTUGUESE_BR, this, this);
+		Context context = this;
+		OnCompleteLoad onCompleteLoad = new OnCompleteLoad() {
+			@Override
+			public void onCompleteLoaded() {
+				runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						enableInputUser();
+					}
+				});
+			}
+		};
+		Speaker.speack(textForSpeech, Language.PORTUGUESE_BR, context,
+				onCompleteLoad);
 	}
 
 	private void disableInputUser() {
