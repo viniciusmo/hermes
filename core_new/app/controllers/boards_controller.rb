@@ -2,11 +2,10 @@ class BoardsController < ApplicationController
   # GET /boards
   # GET /boards.json
   def index
-    @boards = Board.all
-    p @boards.item_boards
+    @boards = Board.find(:all, include: :item_boards)
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @boards }
+      format.json { render json: @boards}
     end
   end
 
