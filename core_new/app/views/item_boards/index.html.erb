@@ -1,0 +1,30 @@
+<h1>Listing item_boards</h1>
+
+<table>
+  <tr>
+    <th>Board id</th>
+    <th>Path image</th>
+    <th>Path sound</th>
+    <th>Next board</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @item_boards.each do |item_board| %>
+  <tr>
+    <td><%= item_board.board_id %></td>
+    <td><%= item_board.path_image %></td>
+    <td><%= item_board.path_sound %></td>
+    <td><%= item_board.next_board_id %></td>
+    <td><%= link_to 'Show', item_board %></td>
+    <td><%= link_to 'Edit', edit_item_board_path(item_board) %></td>
+    <td><%= link_to 'Destroy', item_board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item board', new_item_board_path %>

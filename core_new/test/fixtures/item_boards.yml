@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  path_image: MyString
+  path_sound: MyString
+  next_board_id: 
+
+two:
+  path_image: MyString
+  path_sound: MyString
+  next_board_id: 
