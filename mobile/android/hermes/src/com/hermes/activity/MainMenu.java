@@ -49,8 +49,7 @@ public class MainMenu extends Activity implements
 			startActivity(new Intent(this, TextSound.class));
 			break;
 		case R.id.btn_image_to_audio:
-			Intent intent = new Intent(this, ImageSound.class);
-			intent.putExtra("board", new BoardRepository().createMainBoard());
+			Intent intent = new Intent(this, Pronouns.class);
 			startActivity(intent);
 			break;
 		}

@@ -24,7 +24,7 @@ public class SplashActivity extends Activity implements Runnable {
 		new Thread() {
 			public void run() {
 				String result = WebClient
-						.getContent("http://tccteste.no-ip.biz:9292/boards");
+						.getContent("http://192.168.0.3:9292/boards");
 				BoardContainer boardContainer = new Gson().fromJson(result,
 						BoardContainer.class);
 				System.out.println(boardContainer.getBoards().get(0).getName());
