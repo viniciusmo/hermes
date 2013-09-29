@@ -12,7 +12,6 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.hermes.R;
 import com.hermes.libras.PlayerLibras;
 import com.hermes.reflection.Id;
