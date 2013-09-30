@@ -8,7 +8,6 @@ import android.view.Window;
 import android.widget.ImageButton;
 
 import com.hermes.R;
-import com.hermes.model.repository.BoardRepository;
 import com.hermes.tools.ApplicationContext;
 
 public class MainMenu extends Activity implements

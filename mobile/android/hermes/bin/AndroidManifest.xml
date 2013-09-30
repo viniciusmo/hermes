@@ -33,7 +33,11 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="com.hermes.activity.Verbs"
+            android:name="com.hermes.activity.VerbsMe"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.hermes.activity.VerbsYou"
             android:screenOrientation="landscape" >
         </activity>
         <activity

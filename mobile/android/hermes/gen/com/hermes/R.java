@@ -48,9 +48,10 @@ public final class R {
         public static final int activity_speech_libras=0x7f030003;
         public static final int activity_splash_screen=0x7f030004;
         public static final int activity_text_audio=0x7f030005;
-        public static final int activity_verbs=0x7f030006;
-        public static final int item_image_board=0x7f030007;
-        public static final int item_line_board=0x7f030008;
+        public static final int activity_verbs_me=0x7f030006;
+        public static final int activity_verbs_you=0x7f030007;
+        public static final int item_image_board=0x7f030008;
+        public static final int item_line_board=0x7f030009;
     }
     public static final class menu {
         public static final int imagesound=0x7f070000;
