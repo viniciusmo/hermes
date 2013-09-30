@@ -1,24 +1,24 @@
 package com.hermes.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Window;
 
 import com.google.gson.Gson;
 import com.hermes.R;
 import com.hermes.model.repository.BoardContainer;
+import com.hermes.reflection.AnnotatedActivity;
+import com.hermes.reflection.Layout;
+import com.hermes.reflection.NoTitle;
 import com.hermes.tools.WebClient;
 
-public class SplashActivity extends Activity implements Runnable {
+@Layout(R.layout.activity_splash_screen)
+@NoTitle
+public class SplashActivity extends AnnotatedActivity implements Runnable {
 
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.activity_splash_screen);
-
 		Handler handler = new Handler();
 		handler.postDelayed(this, 5000);
 		new Thread() {
