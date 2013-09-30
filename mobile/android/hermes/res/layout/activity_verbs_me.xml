@@ -14,19 +14,22 @@
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="Vou" />
+            android:onClick="go"
+            android:text="@string/vou" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="Quero" />
+            android:onClick="want"
+            android:text="@string/quero" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="Estou" />
+            android:onClick="am"
+            android:text="@string/estou" />
     </LinearLayout>
 
 </RelativeLayout>

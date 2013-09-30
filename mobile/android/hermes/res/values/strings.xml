@@ -15,5 +15,8 @@
     <string name="action_settings">Settings</string>
     <string name="eu">Eu</string>
     <string name="voce">Você</string>
+    <string name="estou">Estou</string>
+    <string name="quero">Quero</string>
+    <string name="vou">Vou</string>
 
 </resources>
