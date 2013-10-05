@@ -13,8 +13,10 @@
 ActiveRecord::Schema.define(version: 20130928004744) do
 
   create_table "boards", force: true do |t|
-    t.string "name"
-    t.string "categorie"
+    t.string  "name"
+    t.string  "categorie"
+    t.integer "lines"
+    t.integer "cols"
   end
 
   create_table "items", force: true do |t|

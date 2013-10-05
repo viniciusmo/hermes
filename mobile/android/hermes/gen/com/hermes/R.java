@@ -72,6 +72,8 @@ public final class R {
         public static final int title_activity_imagesound=0x7f05000a;
         public static final int title_activity_menu_principal=0x7f050006;
         public static final int title_activity_texto_audio=0x7f050003;
+        public static final int url_service_boards=0x7f050011;
+        public static final int url_service_boards_version=0x7f050012;
         public static final int voce=0x7f05000d;
         public static final int vou=0x7f050010;
     }

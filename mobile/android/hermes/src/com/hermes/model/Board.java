@@ -9,7 +9,8 @@ public class Board implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String name;
 	private String categorie;
-
+	private Integer lines;
+	private Integer cols;
 	@SerializedName("items")
 	private List<ItemBoard> itens;
 
@@ -27,6 +28,22 @@ public class Board implements Serializable {
 
 	public String getCategorie() {
 		return categorie;
+	}
+
+	public Integer getLines() {
+		return lines;
+	}
+
+	public void setLines(Integer lines) {
+		this.lines = lines;
+	}
+
+	public Integer getCols() {
+		return cols;
+	}
+
+	public void setCols(Integer cols) {
+		this.cols = cols;
 	}
 
 }

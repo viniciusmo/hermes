@@ -6,15 +6,15 @@ set :database, "sqlite3:///hermes.db"
 class Item < ActiveRecord::Base
 	belongs_to :board
 
-	URL_PATH = "http://localhost:4567"
+	URL_PATH = "http://tccteste.no-ip.biz:9292"
 
 	def path_image
        URL_PATH+read_attribute(:path_image)
-  	end
+  end
 
-  	def path_sound
+  def path_sound
       URL_PATH+read_attribute(:path_sound)
-  	end
+  end
 
 end
 

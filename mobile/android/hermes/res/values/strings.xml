@@ -18,5 +18,7 @@
     <string name="estou">Estou</string>
     <string name="quero">Quero</string>
     <string name="vou">Vou</string>
+    <string name="url_service_boards">http://tccteste.no-ip.biz:9292/boards</string>
+    <string name="url_service_boards_version">http://tccteste.no-ip.biz:9292/boards/version</string>
 
 </resources>
