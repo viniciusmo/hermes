@@ -14,18 +14,21 @@
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
+            android:onClick="go"
             android:text="Vai" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
+            android:onClick="want"
             android:text="Quer" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
+            android:onClick="am"
             android:text="Está" />
     </LinearLayout>
 

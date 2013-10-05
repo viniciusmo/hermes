@@ -12,12 +12,13 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import com.hermes.R;
 import com.hermes.libras.PlayerLibras;
+import com.hermes.reflection.AnnotatedActivity;
 import com.hermes.reflection.Id;
 import com.hermes.reflection.Layout;
 import com.hermes.reflection.NoTitle;
-import com.hermes.reflection.AnnotatedActivity;
 import com.hermes.tools.ApplicationContext;
 import com.hermes.tools.Log;
 

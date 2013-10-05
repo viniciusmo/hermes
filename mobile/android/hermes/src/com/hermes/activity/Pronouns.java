@@ -5,10 +5,10 @@ import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.view.View;
 
+import com.hermes.R;
 import com.hermes.reflection.AnnotatedActivity;
 import com.hermes.reflection.Layout;
 import com.hermes.tools.SoundTools;
-import com.hermes.R;
 
 @Layout(R.layout.activity_pronouns)
 public class Pronouns extends AnnotatedActivity {
