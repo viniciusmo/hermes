@@ -1,5 +1,8 @@
 package com.hermes.tools;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -17,6 +20,20 @@ public class ImageTools {
 		Bitmap bitmap = null;
 		try {
 			istr = assetManager.open(path);
+			bitmap = BitmapFactory.decodeStream(istr);
+			istr.close();
+		} catch (IOException e) {
+			throw new FailLoadAssetException();
+		}
+		return bitmap;
+	}
+
+	public static Bitmap getBitmapOfPath(String path) {
+		InputStream istr;
+		Bitmap bitmap = null;
+		try {
+			File file = new File(path);
+			istr = new BufferedInputStream(new FileInputStream(file));
 			bitmap = BitmapFactory.decodeStream(istr);
 			istr.close();
 		} catch (IOException e) {

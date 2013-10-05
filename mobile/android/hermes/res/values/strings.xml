@@ -13,5 +13,12 @@
     <string name="activity_menu_principal_btn_audio_libras">Audio->Libras</string>
     <string name="title_activity_imagesound">MainActivity</string>
     <string name="action_settings">Settings</string>
+    <string name="eu">Eu</string>
+    <string name="voce">Você</string>
+    <string name="estou">Estou</string>
+    <string name="quero">Quero</string>
+    <string name="vou">Vou</string>
+    <string name="url_service_boards">http://tccteste.no-ip.biz:9292/boards</string>
+    <string name="url_service_boards_version">http://tccteste.no-ip.biz:9292/boards/version</string>
 
 </resources>

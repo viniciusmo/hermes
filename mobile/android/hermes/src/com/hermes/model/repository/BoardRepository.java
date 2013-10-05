@@ -9,9 +9,7 @@ import com.hermes.model.ItemBoardCall;
 
 public class BoardRepository {
 
-	public BoardRepository() {
-
-	}
+	public static BoardContainer boardContainer;
 
 	public Board createMainBoard() {
 		Board board = new Board(createItensForMainBoard());
@@ -61,6 +59,14 @@ public class BoardRepository {
 		itens.add(new ItemBoard("1_estou_com_fome.jpg", "1_estou_com_fome.mp3"));
 		itens.add(new ItemBoard("1_estou_com_fome.jpg", "1_estou_com_fome.mp3"));
 		return itens;
+	}
+
+	public static BoardContainer getBoardContainer() {
+		return boardContainer;
+	}
+
+	public static void setBoardContainer(BoardContainer boardContainer) {
+		BoardRepository.boardContainer = boardContainer;
 	}
 
 }

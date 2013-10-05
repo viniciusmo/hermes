@@ -10,10 +10,10 @@ import android.widget.LinearLayout;
 import com.hermes.R;
 import com.hermes.model.Board;
 import com.hermes.model.ItemBoard;
+import com.hermes.reflection.AnnotatedActivity;
 import com.hermes.reflection.Id;
 import com.hermes.reflection.Layout;
 import com.hermes.reflection.NoTitle;
-import com.hermes.reflection.AnnotatedActivity;
 import com.hermes.tools.ImageTools;
 
 @NoTitle
@@ -22,8 +22,6 @@ public class ImageSound extends AnnotatedActivity implements OnClickListener {
 	@Id(R.id.board)
 	private LinearLayout boardView;
 	private Board board;
-	private static final int LINES = 3;
-	private static final int COLS = 4;
 	private int index = 0;
 
 	@Override
@@ -35,7 +33,7 @@ public class ImageSound extends AnnotatedActivity implements OnClickListener {
 
 	private void fillViewWithBoard() {
 		index = 0;
-		for (int i = 0; i < LINES; i++) {
+		for (int i = 0; i < board.getLines(); i++) {
 			fillBoardView();
 		}
 	}
@@ -43,7 +41,7 @@ public class ImageSound extends AnnotatedActivity implements OnClickListener {
 	private void fillBoardView() {
 		LinearLayout boardLineView = (LinearLayout) getLayoutInflater()
 				.inflate(R.layout.item_line_board, boardView, false);
-		for (int j = 0; j < COLS; j++) {
+		for (int j = 0; j < board.getCols(); j++) {
 			ItemBoard itemBoard = board.getItens().get(index);
 			fillBoardLineView(itemBoard, boardLineView);
 			index++;
@@ -55,7 +53,7 @@ public class ImageSound extends AnnotatedActivity implements OnClickListener {
 		ImageView boardItemView = (ImageView) getLayoutInflater().inflate(
 				R.layout.item_image_board, boardLineView, false);
 		boardLineView.addView(boardItemView);
-		Bitmap bitmap = ImageTools.getBitmapOfAssetsFolder(item.getPathImage());
+		Bitmap bitmap = ImageTools.getBitmapOfPath(item.getPathImage());
 		boardItemView.setImageBitmap(bitmap);
 		boardItemView.setTag(item);
 		boardItemView.setOnClickListener(this);

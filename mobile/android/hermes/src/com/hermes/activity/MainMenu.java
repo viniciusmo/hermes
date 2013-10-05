@@ -5,23 +5,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.hermes.R;
-import com.hermes.model.repository.BoardRepository;
-import com.hermes.tools.ApplicationContext;
 
 public class MainMenu extends Activity implements
 		android.view.View.OnClickListener {
-	private Button btnTextToAudio;
-	private Button btnImageToAudio;
-	private Button btnAudioToLibras;
+	private ImageButton btnTextToAudio;
+	private ImageButton btnImageToAudio;
+	private ImageButton btnAudioToLibras;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		ApplicationContext.setContext(this);
 		setContentView(R.layout.activity_main_menu);
 		initComponents();
 		setListenersAllButtons();
@@ -34,9 +31,9 @@ public class MainMenu extends Activity implements
 	}
 
 	private void initComponents() {
-		btnImageToAudio = (Button) findViewById(R.id.btn_image_to_audio);
-		btnTextToAudio = (Button) findViewById(R.id.btn_text_to_audio);
-		btnAudioToLibras = (Button) findViewById(R.id.btn_audio_to_libras);
+		btnImageToAudio = (ImageButton) findViewById(R.id.btn_image_to_audio);
+		btnTextToAudio = (ImageButton) findViewById(R.id.btn_text_to_audio);
+		btnAudioToLibras = (ImageButton) findViewById(R.id.btn_audio_to_libras);
 	}
 
 	@Override
@@ -49,8 +46,7 @@ public class MainMenu extends Activity implements
 			startActivity(new Intent(this, TextSound.class));
 			break;
 		case R.id.btn_image_to_audio:
-			Intent intent = new Intent(this, ImageSound.class);
-			intent.putExtra("board", new BoardRepository().createMainBoard());
+			Intent intent = new Intent(this, Pronouns.class);
 			startActivity(intent);
 			break;
 		}
