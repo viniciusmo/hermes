@@ -62,6 +62,12 @@
         <meta-data
             android:name="ormdroid.database.name"
             android:value="hermes" />
+
+        <activity
+            android:name="com.hermes.activity.VideoLibras"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
     </application>
 
 </manifest>

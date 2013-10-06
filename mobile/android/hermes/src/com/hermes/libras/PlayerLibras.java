@@ -13,7 +13,7 @@ public class PlayerLibras {
 	private Activity activity;
 	private ImageView imgLibras;
 	private String text;
-	private static int TIME_SLEEP_IN_SECONDS = 1000 * 2;
+	public static int TIME_SLEEP_IN_SECONDS = 1000 * 2;
 
 	public PlayerLibras(Activity activity, ImageView imgLibras, String text) {
 		this.activity = activity;

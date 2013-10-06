@@ -9,8 +9,10 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.SlidingDrawer;
 import android.widget.Toast;
 
 import com.hermes.R;
@@ -20,6 +22,7 @@ import com.hermes.reflection.Id;
 import com.hermes.reflection.Layout;
 import com.hermes.reflection.NoTitle;
 import com.hermes.tools.ApplicationContext;
+import com.hermes.tools.LibrasTools;
 import com.hermes.tools.Log;
 
 @NoTitle
@@ -30,14 +33,20 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 	private ImageButton btnSpeak;
 	@Id(R.id.img_libras)
 	private ImageView imgLibras;
+	@Id(R.id.audio_btn_libras_to_video)
+	private Button btnVideo;
+
+	private String text;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		btnSpeak.setOnClickListener(this);
+		btnVideo.setOnClickListener(this);
+		btnVideo.setVisibility(View.GONE);
 	}
 
-	private void playLibras(String text) {
+	private void playLibras() {
 		Log.i(String.format("Texto capturado foi %s", text));
 		PlayerLibras player = new PlayerLibras(this, imgLibras, text);
 		player.play();
@@ -46,13 +55,19 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 	private void doTratamentWithTextCapturedAndPlayLibras(int resultCode,
 			Intent data) {
 		if (resultCode == RESULT_OK && null != data) {
-			final ArrayList<String> text = data
+			final ArrayList<String> texts = data
 					.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
 			new Thread() {
 				public void run() {
-					playLibras(text.get(0).toUpperCase(Locale.getDefault()));
+					text = texts.get(0).toUpperCase(Locale.getDefault());
+					playLibras();
 				}
 			}.start();
+			// ARRUMAR
+			// problemas com thread !!!! vai se fode java fdp
+			// if (LibrasTools.hasVideo(text, getApplicationContext())) {
+			btnVideo.setVisibility(View.VISIBLE);
+			// }
 		}
 	}
 
@@ -70,15 +85,27 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-		intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "pt-BR");
-		try {
-			startActivityForResult(intent, RESULT_SPEECH);
-		} catch (ActivityNotFoundException a) {
-			Toast t = Toast.makeText(ApplicationContext.context(),
-					"Ops! Your device doesn't support Speech to Text",
-					Toast.LENGTH_SHORT);
-			t.show();
+
+		switch (v.getId()) {
+		case R.id.btn_speak:
+			Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+			intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "pt-BR");
+			try {
+				startActivityForResult(intent, RESULT_SPEECH);
+			} catch (ActivityNotFoundException a) {
+				Toast t = Toast.makeText(ApplicationContext.context(),
+						"Ops! Your device doesn't support Speech to Text",
+						Toast.LENGTH_SHORT);
+				t.show();
+			}
+			break;
+		case R.id.audio_btn_libras_to_video:
+			Intent intentVideoLibras = new Intent(this, VideoLibras.class);
+			intentVideoLibras.putExtra("text", text);
+			startActivity(intentVideoLibras);
+			break;
+		default:
+			break;
 		}
 	}
 }
