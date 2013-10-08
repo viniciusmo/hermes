@@ -18,8 +18,8 @@
     <string name="estou">Estou</string>
     <string name="quero">Quero</string>
     <string name="vou">Vou</string>
-    <string name="url_service_boards">http://192.168.1.7:9292/boards</string>
-    <string name="url_service_boards_version">http://192.168.1.7:9292/boards/version</string>
+    <string name="url_service_boards">http://tccfatec.herokuapp.com/boards</string>
+    <string name="url_service_boards_version">http://tccfatec.herokuapp.com/boards/version</string>
     <string name="activity_speech_libras_btn_video">Video</string>
     <string name="title_activity_video_libras">VideoLibras</string>
 
