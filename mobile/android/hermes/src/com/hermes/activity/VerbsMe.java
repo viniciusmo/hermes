@@ -18,6 +18,7 @@ public class VerbsMe extends AnnotatedActivity {
 		intent.putExtra("board",
 				BoardRepository.createBoardByCategorie("quero"));
 		startActivity(intent);
+		finish();
 	}
 
 	public void am(View v) {
@@ -26,7 +27,7 @@ public class VerbsMe extends AnnotatedActivity {
 		intent.putExtra("board",
 				BoardRepository.createBoardByCategorie("estou"));
 		startActivity(intent);
-
+		finish();
 	}
 
 	public void go(View v) {
@@ -34,5 +35,6 @@ public class VerbsMe extends AnnotatedActivity {
 		Intent intent = new Intent(this, ImageSound.class);
 		intent.putExtra("board", BoardRepository.createBoardByCategorie("vou"));
 		startActivity(intent);
+		finish();
 	}
 }

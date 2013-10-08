@@ -9,22 +9,7 @@ import com.hermes.tools.OnFinishSaveFile;
 import com.hermes.tools.Storage;
 import com.hermes.tools.WebClient;
 
-public class SyncBoards implements Runnable {
-
-	public void run() {
-		String url = ApplicationContext.res().getString(
-				R.string.url_service_boards);
-		String result = WebClient.getContent(url);
-		BoardContainer boardContainer = new Gson().fromJson(result,
-				BoardContainer.class);
-		for (Board board : boardContainer.getBoards()) {
-			for (final ItemBoard item : board.getItens()) {
-				saveImageOfItem(item);
-				saveSoundOfItem(item);
-			}
-		}
-		BoardRepository.setBoardContainer(boardContainer);
-	}
+public class SyncBoards {
 
 	private void saveSoundOfItem(final ItemBoard item) {
 		Storage.downlaodAndSaveFile(item.getPathSound(),
@@ -43,6 +28,21 @@ public class SyncBoards implements Runnable {
 						item.setPathImage(file);
 					}
 				});
+	}
+
+	public void doSync() {
+		String url = ApplicationContext.res().getString(
+				R.string.url_service_boards);
+		String result = WebClient.getContent(url);
+		BoardContainer boardContainer = new Gson().fromJson(result,
+				BoardContainer.class);
+		for (Board board : boardContainer.getBoards()) {
+			for (final ItemBoard item : board.getItens()) {
+				saveImageOfItem(item);
+				saveSoundOfItem(item);
+			}
+		}
+		BoardRepository.setBoardContainer(boardContainer);
 	}
 
 }
