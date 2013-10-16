@@ -34,7 +34,7 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 	@Id(R.id.img_libras)
 	private ImageView imgLibras;
 	@Id(R.id.audio_btn_libras_to_video)
-	private Button btnVideo;
+	private ImageButton btnVideo;
 
 	private String text;
 
