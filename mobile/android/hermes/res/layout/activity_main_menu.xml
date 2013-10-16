@@ -1,44 +1,59 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/default_background"
     android:orientation="horizontal"
-    android:background="@drawable/menu_principal"
-    tools:context=".MainMenu"
-    >
+    tools:context=".MainMenu" >
+
+    <View
+        android:id="@+id/fakeView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/logosemfundo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fakeView"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/logo_sem_fundo" />
 
     <ImageButton
         android:id="@+id/btn_audio_to_libras"
-        android:layout_width="200dp"
+        android:layout_width="fill_parent"
+        android:scaleType="fitCenter"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
-        android:layout_above="@+id/btn_image_to_audio"
-        android:layout_marginBottom="20dp"
-        android:layout_gravity="right"
+        android:layout_above="@+id/btn_text_to_audio"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/fakeView"
         android:src="@drawable/icon_audio_libras"
         android:text="@string/activity_menu_principal_btn_audio_libras" />
 
     <ImageButton
-        android:id="@+id/btn_image_to_audio"
-        android:layout_width="200dp"
+        android:id="@+id/btn_text_to_audio"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/fakeView"
+        android:scaleType="fitCenter"
         android:layout_centerVertical="true"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/activity_menu_principal_btn_imagem_audio"
-        android:src="@drawable/icon_imagem_audio" />
+        android:src="@drawable/icon_texto_audio"
+        android:text="@string/activity_menu_principal_btn_text_audio" />
 
     <ImageButton
-        android:id="@+id/btn_text_to_audio"
-        android:layout_width="200dp"
+        android:id="@+id/btn_image_to_audio"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/btn_image_to_audio"
-        android:layout_marginRight="20dp"
-        android:text="@string/activity_menu_principal_btn_text_audio" 
-        android:src="@drawable/icon_texto_audio"/>
+        android:scaleType="fitCenter"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/btn_text_to_audio"
+        android:layout_below="@+id/btn_text_to_audio"
+        android:src="@drawable/icon_imagem_audio"
+        android:text="@string/activity_menu_principal_btn_imagem_audio" />
 
 </RelativeLayout>
