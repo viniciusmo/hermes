@@ -3,6 +3,7 @@ package com.hermes.activity;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,6 +47,12 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 		btnVideo.setVisibility(View.GONE);
 	}
 
+	@Override
+	protected void onRestart() {
+		btnVideo.setVisibility(View.GONE);
+		super.onRestart();
+	}
+
 	private void playLibras() {
 		Log.i(String.format("Texto capturado foi %s", text));
 		PlayerLibras player = new PlayerLibras(this, imgLibras, text);
@@ -57,17 +64,22 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 		if (resultCode == RESULT_OK && null != data) {
 			final ArrayList<String> texts = data
 					.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+			final Activity currentActivity = this;
 			new Thread() {
 				public void run() {
 					text = texts.get(0).toUpperCase(Locale.getDefault());
 					playLibras();
+					currentActivity.runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							if (LibrasTools.hasVideo(text,
+									getApplicationContext())) {
+								btnVideo.setVisibility(View.VISIBLE);
+							}
+						}
+					});
 				}
 			}.start();
-			// ARRUMAR
-			// problemas com thread !!!! vai se fode java fdp
-			// if (LibrasTools.hasVideo(text, getApplicationContext())) {
-			btnVideo.setVisibility(View.VISIBLE);
-			// }
 		}
 	}
 
@@ -91,6 +103,7 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 			Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
 			intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "pt-BR");
 			try {
+				btnVideo.setVisibility(View.GONE);
 				startActivityForResult(intent, RESULT_SPEECH);
 			} catch (ActivityNotFoundException a) {
 				Toast t = Toast.makeText(ApplicationContext.context(),
