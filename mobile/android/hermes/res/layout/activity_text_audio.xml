@@ -3,7 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".TextAudio" >
+    tools:context=".TextAudio" 
+    android:background="@drawable/default_background">
 
     <EditText
         android:id="@+id/text_to_audio"
@@ -15,11 +16,13 @@
         android:hint="@string/activity_texto_audio_hint_text"
         android:inputType="text" />
 
-    <Button
+    <ImageButton
         android:id="@+id/text_btn_image_to_audio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
+        android:scaleType="fitCenter"
+        android:src="@drawable/falar"
         android:layout_marginRight="20dp"
         android:hint="@string/activity_texto_audio_btn_falar" />
 
