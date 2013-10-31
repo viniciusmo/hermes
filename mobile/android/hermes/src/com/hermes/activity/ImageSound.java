@@ -42,7 +42,7 @@ public class ImageSound extends AnnotatedActivity implements OnClickListener {
 		LinearLayout boardLineView = (LinearLayout) getLayoutInflater()
 				.inflate(R.layout.item_line_board, boardView, false);
 		for (int j = 0; j < board.getCols(); j++) {
-			ItemBoard itemBoard = board.getItens().get(index);
+			ItemBoard itemBoard = board.getItemBoardList().get(index);
 			fillBoardLineView(itemBoard, boardLineView);
 			index++;
 		}

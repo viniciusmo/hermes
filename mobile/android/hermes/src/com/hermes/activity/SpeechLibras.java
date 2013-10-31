@@ -10,10 +10,8 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.SlidingDrawer;
 import android.widget.Toast;
 
 import com.hermes.R;

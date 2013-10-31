@@ -37,7 +37,7 @@ public class SyncBoards {
 		BoardContainer boardContainer = new Gson().fromJson(result,
 				BoardContainer.class);
 		for (Board board : boardContainer.getBoards()) {
-			for (final ItemBoard item : board.getItens()) {
+			for (final ItemBoard item : board.getItemBoardList()) {
 				saveImageOfItem(item);
 				saveSoundOfItem(item);
 			}
