@@ -10,10 +10,8 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.SlidingDrawer;
 import android.widget.Toast;
 
 import com.hermes.R;
@@ -35,7 +33,7 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 	@Id(R.id.img_libras)
 	private ImageView imgLibras;
 	@Id(R.id.audio_btn_libras_to_video)
-	private Button btnVideo;
+	private ImageButton btnVideo;
 
 	private String text;
 
@@ -69,6 +67,7 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 				public void run() {
 					text = texts.get(0).toUpperCase(Locale.getDefault());
 					playLibras();
+<<<<<<< HEAD
 					if (LibrasTools.hasVideo(text, getApplicationContext())) {
 						currentActivity.runOnUiThread(new Runnable() {
 							@Override
@@ -77,6 +76,17 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 							}
 						});
 					}
+=======
+					currentActivity.runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							if (LibrasTools.hasVideo(text,
+									getApplicationContext())) {
+								btnVideo.setVisibility(View.VISIBLE);
+							}
+						}
+					});
+>>>>>>> heroku
 				}
 			}.start();
 		}
@@ -102,6 +112,7 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 			Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
 			intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "pt-BR");
 			try {
+				btnVideo.setVisibility(View.GONE);
 				startActivityForResult(intent, RESULT_SPEECH);
 			} catch (ActivityNotFoundException a) {
 				Toast t = Toast.makeText(ApplicationContext.context(),

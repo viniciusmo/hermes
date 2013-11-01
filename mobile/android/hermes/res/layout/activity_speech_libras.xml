@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/default_background" >
 
     <ImageButton
         android:id="@+id/btn_speak"
@@ -21,7 +22,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp" />
 
-    <Button
+    <ImageButton
         android:id="@+id/audio_btn_libras_to_video"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,6 +30,7 @@
         android:layout_alignRight="@+id/btn_speak"
         android:layout_marginBottom="20dp"
         android:layout_marginRight="16dp"
+        android:src="@drawable/video"
         android:text="@string/activity_speech_libras_btn_video" />
 
 </RelativeLayout>

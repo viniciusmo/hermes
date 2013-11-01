@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/default_background"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -10,26 +11,29 @@
         android:layout_centerHorizontal="true"
         android:orientation="horizontal" >
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:onClick="go"
-            android:text="Vai" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/vai" />
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:onClick="want"
-            android:text="Quer" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/quer" />
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:onClick="am"
-            android:text="Está" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/esta" />
     </LinearLayout>
 
 </RelativeLayout>

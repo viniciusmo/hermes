@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.hermes.R;
 import com.hermes.model.Board;
 import com.hermes.model.ItemBoard;
+import com.hermes.model.dao.BoardDao;
 import com.hermes.tools.ApplicationContext;
 import com.hermes.tools.OnFinishSaveFile;
 import com.hermes.tools.Storage;
@@ -36,13 +37,16 @@ public class SyncBoards {
 		String result = WebClient.getContent(url);
 		BoardContainer boardContainer = new Gson().fromJson(result,
 				BoardContainer.class);
-		for (Board board : boardContainer.getBoards()) {
-			for (final ItemBoard item : board.getItens()) {
-				saveImageOfItem(item);
-				saveSoundOfItem(item);
+		BoardDao boardDao = BoardDao.create();
+		if (boardDao.loadAll().isEmpty()) {
+			for (Board board : boardContainer.getBoards()) {
+				boardDao.insert(board);
+				for (ItemBoard itemBoard : board.getItemBoardList()) {
+					saveImageOfItem(itemBoard);
+					saveSoundOfItem(itemBoard);
+				}
 			}
 		}
-		BoardRepository.setBoardContainer(boardContainer);
-	}
 
+	}
 }

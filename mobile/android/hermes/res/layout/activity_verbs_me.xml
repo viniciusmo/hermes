@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/default_background" >
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -10,25 +11,31 @@
         android:layout_centerHorizontal="true"
         android:orientation="horizontal" >
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:onClick="go"
+            android:scaleType="fitCenter"
+            android:src="@drawable/vou"
             android:text="@string/vou" />
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:onClick="want"
+            android:scaleType="fitCenter"
+            android:src="@drawable/quero"
             android:text="@string/quero" />
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
+            android:scaleType="fitCenter"
             android:onClick="am"
+            android:src="@drawable/estou"
             android:text="@string/estou" />
     </LinearLayout>
 
