@@ -67,7 +67,6 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 				public void run() {
 					text = texts.get(0).toUpperCase(Locale.getDefault());
 					playLibras();
-<<<<<<< HEAD
 					if (LibrasTools.hasVideo(text, getApplicationContext())) {
 						currentActivity.runOnUiThread(new Runnable() {
 							@Override
@@ -76,7 +75,6 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 							}
 						});
 					}
-=======
 					currentActivity.runOnUiThread(new Runnable() {
 						@Override
 						public void run() {
@@ -86,7 +84,6 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 							}
 						}
 					});
->>>>>>> heroku
 				}
 			}.start();
 		}
