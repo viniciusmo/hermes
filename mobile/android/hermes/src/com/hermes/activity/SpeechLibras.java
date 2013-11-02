@@ -2,7 +2,6 @@ package com.hermes.activity;
 
 import java.util.ArrayList;
 import java.util.Locale;
-
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;

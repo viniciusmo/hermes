@@ -2,6 +2,7 @@ package com.hermes.model;
 
 import java.io.Serializable;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.hermes.model.dao.BoardDao;
 import com.hermes.model.dao.DaoSession;
@@ -20,10 +21,10 @@ public class ItemBoard implements ItemActionable, Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long id;
 	private long boardId;
-	/** Not-null value. */
+	@Expose
 	@SerializedName("path_sound")
 	private String pathSound;
-	/** Not-null value. */
+	@Expose
 	@SerializedName("path_image")
 	private String pathImage;
 

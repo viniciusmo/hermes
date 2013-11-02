@@ -3,10 +3,12 @@ package com.hermes.model;
 import java.io.Serializable;
 import java.util.List;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.hermes.model.dao.BoardDao;
 import com.hermes.model.dao.DaoSession;
 import com.hermes.model.dao.ItemBoardDao;
+import com.hermes.tools.Log;
 
 import de.greenrobot.dao.AbstractDao;
 import de.greenrobot.dao.DaoException;
@@ -18,12 +20,15 @@ import de.greenrobot.dao.DaoException;
 public class Board implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
 	private Long id;
-	/** Not-null value. */
+	@Expose
 	private String name;
-	/** Not-null value. */
+	@Expose
 	private String categorie;
+	@Expose
 	private int lines;
+	@Expose
 	private int cols;
 
 	/** Used to resolve relations */
@@ -31,8 +36,8 @@ public class Board implements Serializable {
 
 	/** Used for active entity operations. */
 	private transient BoardDao myDao;
-
-	@SerializedName("itens")
+	@Expose
+	@SerializedName("items")
 	private List<ItemBoard> itemBoardList;
 
 	public Board() {
@@ -119,6 +124,7 @@ public class Board implements Serializable {
 			ItemBoardDao targetDao = daoSession.getItemBoardDao();
 			List<ItemBoard> itemBoardListNew = targetDao
 					._queryBoard_ItemBoardList(id);
+			Log.i("itens carregados " + itemBoardListNew + "  "  + id);
 			synchronized (this) {
 				if (itemBoardList == null) {
 					itemBoardList = itemBoardListNew;

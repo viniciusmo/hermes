@@ -5,7 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 
 import com.hermes.model.Board;
-import com.hermes.tools.ApplicationContext;
 
 import de.greenrobot.dao.AbstractDao;
 import de.greenrobot.dao.Property;
@@ -65,12 +64,7 @@ public class BoardDao extends AbstractDao<Board, Long> {
 	}
 
 	public static BoardDao create() {
-		SQLiteDatabase db = new DaoMaster.DevOpenHelper(
-				ApplicationContext.context(), "hermes2-db", null)
-				.getWritableDatabase();
-		DaoMaster daoMaster = new DaoMaster(db);
-		DaoSession daoSession = daoMaster.newSession();
-		BoardDao boardDao = daoSession.getBoardDao();
+		BoardDao boardDao = Database.session().getBoardDao();
 		return boardDao;
 	}
 
