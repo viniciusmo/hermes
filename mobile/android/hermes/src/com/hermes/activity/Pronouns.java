@@ -13,6 +13,8 @@ import com.hermes.tools.SoundTools;
 @Layout(R.layout.activity_pronouns)
 public class Pronouns extends AnnotatedActivity {
 
+	private boolean isPlayingSound;
+
 	public void me(View v) {
 		final Intent intent = new Intent(Pronouns.this, VerbsMe.class);
 		String fileSound = "eu.mp3";
@@ -26,11 +28,16 @@ public class Pronouns extends AnnotatedActivity {
 	}
 
 	private void playSongAndCallNextIntent(final Intent intent, String fileSound) {
-		SoundTools.playFileFromAssets(fileSound, new OnCompletionListener() {
-			@Override
-			public void onCompletion(MediaPlayer mp) {
-				startActivity(intent);
-			}
-		});
+		if (!isPlayingSound) {
+			isPlayingSound = true;
+			SoundTools.playFileFromAssets(fileSound,
+					new OnCompletionListener() {
+						@Override
+						public void onCompletion(MediaPlayer mp) {
+							startActivity(intent);
+							isPlayingSound = false;
+						}
+					});
+		}
 	}
 }
