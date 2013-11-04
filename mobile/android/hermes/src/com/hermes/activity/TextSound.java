@@ -3,8 +3,8 @@ package com.hermes.activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.hermes.R;
 import com.hermes.reflection.AnnotatedActivity;
@@ -20,7 +20,7 @@ import com.viniciusmo.androidtextspeech.translate.OnCompleteLoad;
 public class TextSound extends AnnotatedActivity implements
 		android.view.View.OnClickListener, OnCompleteLoad {
 	@Id(R.id.text_btn_image_to_audio)
-	private Button btnTextToAudio;
+	private ImageButton btnTextToAudio;
 	@Id(R.id.text_to_audio)
 	private EditText textToAudio;
 
@@ -51,13 +51,11 @@ public class TextSound extends AnnotatedActivity implements
 	}
 
 	private void disableInputUser() {
-		btnTextToAudio.setText("Loading");
 		btnTextToAudio.setEnabled(false);
 		textToAudio.setEnabled(false);
 	}
 
 	private void enableInputUser() {
-		btnTextToAudio.setText("Falar");
 		btnTextToAudio.setEnabled(true);
 		textToAudio.setEnabled(true);
 	}

@@ -1,6 +1,8 @@
 package com.hermes.activity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
 import android.view.View;
 
 import com.hermes.R;
@@ -12,29 +14,43 @@ import com.hermes.tools.SoundTools;
 @Layout(R.layout.activity_verbs_me)
 public class VerbsMe extends AnnotatedActivity {
 
+	private boolean isPlayingSound;
+
 	public void want(View v) {
-		SoundTools.playFileFromAssets("quero.mp3");
-		Intent intent = new Intent(this, ImageSound.class);
-		intent.putExtra("board",
-				BoardRepository.createBoardByCategorie("quero"));
-		startActivity(intent);
-		finish();
+		String nameSound = "quero.mp3";
+		String categorie = "quero";
+		playSoundAndCallNextBoard(nameSound, categorie);
 	}
 
 	public void am(View v) {
-		SoundTools.playFileFromAssets("estou.mp3");
-		Intent intent = new Intent(this, ImageSound.class);
-		intent.putExtra("board",
-				BoardRepository.createBoardByCategorie("estou"));
-		startActivity(intent);
-		finish();
+		String nameSound = "estou.mp3";
+		String categorie = "estou";
+		playSoundAndCallNextBoard(nameSound, categorie);
+	}
+
+	private void playSoundAndCallNextBoard(final String nameSound,
+			final String categorie) {
+		if (!isPlayingSound) {
+			isPlayingSound = true;
+			SoundTools.playFileFromAssets(nameSound,
+					new OnCompletionListener() {
+						@Override
+						public void onCompletion(MediaPlayer mp) {
+							Intent intent = new Intent(VerbsMe.this,
+									ImageSound.class);
+							intent.putExtra("board", BoardRepository
+									.createBoardByCategorie(categorie));
+							startActivity(intent);
+							finish();
+						}
+					});
+		}
+
 	}
 
 	public void go(View v) {
-		SoundTools.playFileFromAssets("vou.mp3");
-		Intent intent = new Intent(this, ImageSound.class);
-		intent.putExtra("board", BoardRepository.createBoardByCategorie("vou"));
-		startActivity(intent);
-		finish();
+		String nameSound = "vou.mp3";
+		String categorie = "vou";
+		playSoundAndCallNextBoard(nameSound, categorie);
 	}
 }
