@@ -44,6 +44,11 @@ get '/words/:text' do
   end
 end
 
+get '/words' do
+  content_type :json
+    {words: Word.all}.to_json
+end
+
 get '/boards' do
   content_type :json
     {boards: Board.all}.to_json
