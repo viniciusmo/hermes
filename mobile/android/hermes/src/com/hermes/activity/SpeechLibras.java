@@ -64,7 +64,7 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 			final Activity currentActivity = this;
 			new Thread() {
 				public void run() {
-					text = texts.get(0).toUpperCase(Locale.getDefault());
+					text = texts.get(0).toLowerCase(Locale.getDefault());
 					playLibras();
 					if (LibrasTools.hasVideo(text, getApplicationContext())) {
 						currentActivity.runOnUiThread(new Runnable() {
