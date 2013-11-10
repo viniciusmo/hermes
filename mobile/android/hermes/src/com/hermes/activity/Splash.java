@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.hermes.R;
-import com.hermes.model.repository.SyncBoards;
 import com.hermes.reflection.AnnotatedActivity;
 import com.hermes.reflection.Layout;
 import com.hermes.reflection.NoTitle;
+import com.hermes.sync.SyncBoards;
 import com.hermes.tools.ApplicationContext;
 
 @Layout(R.layout.activity_splash_screen)

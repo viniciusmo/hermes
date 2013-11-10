@@ -1,4 +1,4 @@
-package com.hermes.model.repository;
+package com.hermes.sync;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

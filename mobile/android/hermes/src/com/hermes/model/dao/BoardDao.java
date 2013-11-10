@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 
 import com.hermes.model.Board;
+import com.hermes.tools.Log;
 
 import de.greenrobot.dao.AbstractDao;
 import de.greenrobot.dao.Property;
@@ -67,7 +68,12 @@ public class BoardDao extends AbstractDao<Board, Long> {
 		BoardDao boardDao = Database.session().getBoardDao();
 		return boardDao;
 	}
-
+	
+	public static Board findByCategorie(String categorie) {
+		Board board = BoardDao.create().queryBuilder()
+				.where(Properties.Categorie.eq(categorie)).unique();
+		return board;
+	}
 	/** @inheritdoc */
 	@Override
 	protected void bindValues(SQLiteStatement stmt, Board entity) {

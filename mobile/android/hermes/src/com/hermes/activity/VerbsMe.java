@@ -6,7 +6,7 @@ import android.media.MediaPlayer.OnCompletionListener;
 import android.view.View;
 
 import com.hermes.R;
-import com.hermes.model.repository.BoardRepository;
+import com.hermes.model.dao.BoardDao;
 import com.hermes.reflection.AnnotatedActivity;
 import com.hermes.reflection.Layout;
 import com.hermes.tools.SoundTools;
@@ -38,8 +38,7 @@ public class VerbsMe extends AnnotatedActivity {
 						public void onCompletion(MediaPlayer mp) {
 							Intent intent = new Intent(VerbsMe.this,
 									ImageSound.class);
-							intent.putExtra("board", BoardRepository
-									.createBoardByCategorie(categorie));
+							intent.putExtra("board", BoardDao.findByCategorie(categorie));
 							startActivity(intent);
 							finish();
 						}
