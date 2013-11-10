@@ -2,9 +2,11 @@ package com.hermes.activity;
 
 import java.util.ArrayList;
 import java.util.Locale;
+
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
@@ -15,12 +17,13 @@ import android.widget.Toast;
 
 import com.hermes.R;
 import com.hermes.libras.PlayerLibras;
+import com.hermes.model.Word;
+import com.hermes.model.dao.WordDao;
 import com.hermes.reflection.AnnotatedActivity;
 import com.hermes.reflection.Id;
 import com.hermes.reflection.Layout;
 import com.hermes.reflection.NoTitle;
 import com.hermes.tools.ApplicationContext;
-import com.hermes.tools.LibrasTools;
 import com.hermes.tools.Log;
 
 @NoTitle
@@ -33,7 +36,7 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 	private ImageView imgLibras;
 	@Id(R.id.audio_btn_libras_to_video)
 	private ImageButton btnVideo;
-
+	private Word word;
 	private String text;
 
 	@Override
@@ -66,21 +69,14 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 				public void run() {
 					text = texts.get(0).toLowerCase(Locale.getDefault());
 					playLibras();
-					if (LibrasTools.hasVideo(text, getApplicationContext())) {
-						currentActivity.runOnUiThread(new Runnable() {
-							@Override
-							public void run() {
-								btnVideo.setVisibility(View.VISIBLE);
-							}
-						});
-					}
 					currentActivity.runOnUiThread(new Runnable() {
 						@Override
 						public void run() {
-							if (LibrasTools.hasVideo(text,
-									getApplicationContext())) {
+							word = WordDao.findByName(text);
+							if (word != null) {
 								btnVideo.setVisibility(View.VISIBLE);
 							}
+							Log.i("Encontrei um video " + word);
 						}
 					});
 				}
@@ -118,9 +114,8 @@ public class SpeechLibras extends AnnotatedActivity implements OnClickListener {
 			}
 			break;
 		case R.id.audio_btn_libras_to_video:
-			Intent intentVideoLibras = new Intent(this, VideoLibras.class);
-			intentVideoLibras.putExtra("text", text);
-			startActivity(intentVideoLibras);
+			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(word
+					.getUrlVideo())));
 			break;
 		default:
 			break;
