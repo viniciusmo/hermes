@@ -19,7 +19,7 @@
     <string name="quero">Quero</string>
     <string name="vou">Vou</string>
     <string name="url_service_boards">http://coretcc.herokuapp.com/boards</string>
-    <string name="url_service_video_libras">http://coretcc.herokuapp.com/word/%s</string>
+    <string name="url_service_video_libras">http://coretcc.herokuapp.com/words</string>
     <string name="url_service_boards_version">http://coretcc.herokuapp.com/boards/version</string>
     <string name="activity_speech_libras_btn_video">Video</string>
     <string name="title_activity_video_libras">VideoLibras</string>
