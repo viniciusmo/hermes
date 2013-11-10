@@ -5,7 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 
 import com.hermes.model.Board;
-import com.hermes.tools.Log;
 
 import de.greenrobot.dao.AbstractDao;
 import de.greenrobot.dao.Property;

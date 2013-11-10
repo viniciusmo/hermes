@@ -49,6 +49,7 @@ public class VerbsYou extends AnnotatedActivity {
 							finish();
 						}
 					});
+			
 		}
 
 	}
