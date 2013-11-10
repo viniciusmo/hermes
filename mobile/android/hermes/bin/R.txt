@@ -90,7 +90,7 @@ int string action_settings 0x7f06000b
 int string activity_menu_principal_btn_audio_libras 0x7f060009
 int string activity_menu_principal_btn_imagem_audio 0x7f060008
 int string activity_menu_principal_btn_text_audio 0x7f060007
-int string activity_speech_libras_btn_video 0x7f060013
+int string activity_speech_libras_btn_video 0x7f060014
 int string activity_texto_audio_btn_falar 0x7f060004
 int string activity_texto_audio_hint_text 0x7f060005
 int string app_name 0x7f060000
@@ -102,9 +102,10 @@ int string quero 0x7f06000f
 int string title_activity_imagesound 0x7f06000a
 int string title_activity_menu_principal 0x7f060006
 int string title_activity_texto_audio 0x7f060003
-int string title_activity_video_libras 0x7f060014
+int string title_activity_video_libras 0x7f060015
 int string url_service_boards 0x7f060011
-int string url_service_boards_version 0x7f060012
+int string url_service_boards_version 0x7f060013
+int string url_service_video_libras 0x7f060012
 int string voce 0x7f06000d
 int string vou 0x7f060010
 int style AppBaseTheme 0x7f070000

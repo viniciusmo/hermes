@@ -121,7 +121,7 @@ public final class R {
         public static final int activity_menu_principal_btn_audio_libras=0x7f060009;
         public static final int activity_menu_principal_btn_imagem_audio=0x7f060008;
         public static final int activity_menu_principal_btn_text_audio=0x7f060007;
-        public static final int activity_speech_libras_btn_video=0x7f060013;
+        public static final int activity_speech_libras_btn_video=0x7f060014;
         public static final int activity_texto_audio_btn_falar=0x7f060004;
         public static final int activity_texto_audio_hint_text=0x7f060005;
         public static final int app_name=0x7f060000;
@@ -133,9 +133,10 @@ public final class R {
         public static final int title_activity_imagesound=0x7f06000a;
         public static final int title_activity_menu_principal=0x7f060006;
         public static final int title_activity_texto_audio=0x7f060003;
-        public static final int title_activity_video_libras=0x7f060014;
+        public static final int title_activity_video_libras=0x7f060015;
         public static final int url_service_boards=0x7f060011;
-        public static final int url_service_boards_version=0x7f060012;
+        public static final int url_service_boards_version=0x7f060013;
+        public static final int url_service_video_libras=0x7f060012;
         public static final int voce=0x7f06000d;
         public static final int vou=0x7f060010;
     }
