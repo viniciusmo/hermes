@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130928004744) do
+ActiveRecord::Schema.define(version: 20131110201328) do
 
   create_table "boards", force: true do |t|
     t.string  "name"
@@ -26,5 +26,10 @@ ActiveRecord::Schema.define(version: 20130928004744) do
   end
 
   add_index "items", ["board_id"], name: "index_items_on_board_id"
+
+  create_table "words", force: true do |t|
+    t.string "word"
+    t.string "url_word"
+  end
 
 end

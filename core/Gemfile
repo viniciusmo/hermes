@@ -1,7 +1,9 @@
 source :rubygems
  
 gem "sinatra"
-gem "sqlite3"
+gem 'thin'
+#gem "sqlite3"
+gem 'pg'
 gem "activerecord"
 gem "sinatra-activerecord"
  
