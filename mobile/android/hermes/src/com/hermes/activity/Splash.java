@@ -7,7 +7,7 @@ import com.hermes.R;
 import com.hermes.reflection.AnnotatedActivity;
 import com.hermes.reflection.Layout;
 import com.hermes.reflection.NoTitle;
-import com.hermes.sync.SyncBoards;
+import com.hermes.sync.SyncWebServices;
 import com.hermes.tools.ApplicationContext;
 
 @Layout(R.layout.activity_splash_screen)
@@ -20,7 +20,7 @@ public class Splash extends AnnotatedActivity {
 		ApplicationContext.setContext(this);
 		new Thread() {
 			public void run() {
-				new SyncBoards().doSync();
+				new SyncWebServices().doSync();
 				startActivity(new Intent(Splash.this, MainMenu.class));
 				finish();
 			};

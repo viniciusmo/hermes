@@ -36,7 +36,7 @@ public class PlayerLibras {
 	}
 
 	private boolean isBetweenAandZ(char character) {
-		if (character >= 'A' && character <= 'Z') {
+		if (character >= 'a' && character <= 'z') {
 			return true;
 		}
 		return false;
@@ -46,8 +46,9 @@ public class PlayerLibras {
 		activity.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
+				Log.i("Imagem " + character + ".png");
 				imgLibras.setImageBitmap(ImageTools
-						.getBitmapOfAssetsFolder(character + ".jpg"));
+						.getBitmapOfAssetsFolder(character + ".png"));
 			}
 		});
 	}

@@ -14,7 +14,7 @@ import com.hermes.tools.OnFinishSaveFile;
 import com.hermes.tools.Storage;
 import com.hermes.tools.WebClient;
 
-public class SyncBoards {
+public class SyncBoards  implements Synceable{
 
 	private void saveSoundOfItem(final ItemBoard item) {
 		Storage.downlaodAndSaveFile(item.getPathSound(),
