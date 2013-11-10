@@ -1,9 +1,8 @@
-package com.hermes.model.repository;
+package com.hermes.model;
 
 import java.util.List;
 
 import com.google.gson.annotations.Expose;
-import com.hermes.model.Board;
 
 public class BoardContainer {
 	@Expose

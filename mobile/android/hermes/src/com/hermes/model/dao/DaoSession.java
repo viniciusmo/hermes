@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.hermes.model.Board;
 import com.hermes.model.ItemBoard;
 import com.hermes.model.Version;
+import com.hermes.model.Word;
 
 import de.greenrobot.dao.AbstractDao;
 import de.greenrobot.dao.AbstractDaoSession;
@@ -22,10 +23,12 @@ import de.greenrobot.dao.internal.DaoConfig;
  */
 public class DaoSession extends AbstractDaoSession {
 
+    private final DaoConfig wordDaoConfig;
     private final DaoConfig boardDaoConfig;
     private final DaoConfig itemBoardDaoConfig;
     private final DaoConfig versionDaoConfig;
 
+    private final WordDao wordDao;
     private final BoardDao boardDao;
     private final ItemBoardDao itemBoardDao;
     private final VersionDao versionDao;
@@ -33,6 +36,9 @@ public class DaoSession extends AbstractDaoSession {
     public DaoSession(SQLiteDatabase db, IdentityScopeType type, Map<Class<? extends AbstractDao<?, ?>>, DaoConfig>
             daoConfigMap) {
         super(db);
+
+        wordDaoConfig = daoConfigMap.get(WordDao.class).clone();
+        wordDaoConfig.initIdentityScope(type);
 
         boardDaoConfig = daoConfigMap.get(BoardDao.class).clone();
         boardDaoConfig.initIdentityScope(type);
@@ -43,19 +49,26 @@ public class DaoSession extends AbstractDaoSession {
         versionDaoConfig = daoConfigMap.get(VersionDao.class).clone();
         versionDaoConfig.initIdentityScope(type);
 
+        wordDao = new WordDao(wordDaoConfig, this);
         boardDao = new BoardDao(boardDaoConfig, this);
         itemBoardDao = new ItemBoardDao(itemBoardDaoConfig, this);
         versionDao = new VersionDao(versionDaoConfig, this);
 
+        registerDao(Word.class, wordDao);
         registerDao(Board.class, boardDao);
         registerDao(ItemBoard.class, itemBoardDao);
         registerDao(Version.class, versionDao);
     }
     
     public void clear() {
+        wordDaoConfig.getIdentityScope().clear();
         boardDaoConfig.getIdentityScope().clear();
         itemBoardDaoConfig.getIdentityScope().clear();
         versionDaoConfig.getIdentityScope().clear();
+    }
+
+    public WordDao getWordDao() {
+        return wordDao;
     }
 
     public BoardDao getBoardDao() {

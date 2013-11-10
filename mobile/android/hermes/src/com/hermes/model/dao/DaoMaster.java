@@ -17,6 +17,7 @@ public class DaoMaster extends AbstractDaoMaster {
 
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(SQLiteDatabase db, boolean ifNotExists) {
+        WordDao.createTable(db, ifNotExists);
         BoardDao.createTable(db, ifNotExists);
         ItemBoardDao.createTable(db, ifNotExists);
         VersionDao.createTable(db, ifNotExists);
@@ -24,6 +25,7 @@ public class DaoMaster extends AbstractDaoMaster {
     
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(SQLiteDatabase db, boolean ifExists) {
+        WordDao.dropTable(db, ifExists);
         BoardDao.dropTable(db, ifExists);
         ItemBoardDao.dropTable(db, ifExists);
         VersionDao.dropTable(db, ifExists);
@@ -58,6 +60,7 @@ public class DaoMaster extends AbstractDaoMaster {
 
     public DaoMaster(SQLiteDatabase db) {
         super(db, SCHEMA_VERSION);
+        registerDaoClass(WordDao.class);
         registerDaoClass(BoardDao.class);
         registerDaoClass(ItemBoardDao.class);
         registerDaoClass(VersionDao.class);

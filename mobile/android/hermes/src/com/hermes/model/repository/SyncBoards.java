@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.hermes.R;
 import com.hermes.model.Board;
+import com.hermes.model.BoardContainer;
 import com.hermes.model.ItemBoard;
 import com.hermes.model.dao.BoardDao;
 import com.hermes.model.dao.ItemBoardDao;
