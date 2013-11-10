@@ -13,7 +13,7 @@ public class Word {
 	@Expose
 	private String word;
 	@Expose
-	@SerializedName("url_video")
+	@SerializedName("url_word")
 	private String urlVideo;
 
 	public Word() {
