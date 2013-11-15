@@ -14,18 +14,19 @@ public class SyncWords implements Synceable {
 
 	@Override
 	public void doSync() {
-		String url = ApplicationContext.res().getString(
-				R.string.url_service_video_libras);
-		String result = WebClient.getContent(url);
-		Log.i("Carregando de " + url);
 
-		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation()
-				.create();
-		WordContainer wordContainer = gson
-				.fromJson(result, WordContainer.class);
 		WordDao wordDao = WordDao.create();
 
 		if (wordDao.loadAll().isEmpty()) {
+			String url = ApplicationContext.res().getString(
+					R.string.url_service_video_libras);
+			String result = WebClient.getContent(url);
+			Log.i("Carregando de " + url);
+
+			Gson gson = new GsonBuilder()
+					.excludeFieldsWithoutExposeAnnotation().create();
+			WordContainer wordContainer = gson.fromJson(result,
+					WordContainer.class);
 			Log.i("Carregando words");
 			for (Word word : wordContainer.getWords()) {
 				wordDao.insert(word);

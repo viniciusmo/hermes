@@ -14,7 +14,7 @@ import com.hermes.tools.OnFinishSaveFile;
 import com.hermes.tools.Storage;
 import com.hermes.tools.WebClient;
 
-public class SyncBoards  implements Synceable{
+public class SyncBoards implements Synceable {
 
 	private void saveSoundOfItem(final ItemBoard item) {
 		Storage.downlaodAndSaveFile(item.getPathSound(),
@@ -36,17 +36,16 @@ public class SyncBoards  implements Synceable{
 	}
 
 	public void doSync() {
-		String url = ApplicationContext.res().getString(
-				R.string.url_service_boards);
-		String result = WebClient.getContent(url);
-		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation()
-				.create();
-		BoardContainer boardContainer = gson.fromJson(result,
-				BoardContainer.class);
 		BoardDao boardDao = BoardDao.create();
-
 		if (boardDao.loadAll().isEmpty()) {
 			Log.i("Carregando boards");
+			String url = ApplicationContext.res().getString(
+					R.string.url_service_boards);
+			String result = WebClient.getContent(url);
+			Gson gson = new GsonBuilder()
+					.excludeFieldsWithoutExposeAnnotation().create();
+			BoardContainer boardContainer = gson.fromJson(result,
+					BoardContainer.class);
 			for (Board board : boardContainer.getBoards()) {
 				boardDao.insert(board);
 				Log.i("Total de itens na board " + board.getItemBoardList());
