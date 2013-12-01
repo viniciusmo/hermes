@@ -48,7 +48,7 @@ public class PlayerLibras {
 			public void run() {
 				Log.i("Imagem " + character + ".png");
 				imgLibras.setImageBitmap(ImageTools
-						.getBitmapOfAssetsFolder(character + ".png"));
+						.getBitmapOfAssetsFolder(character + ".PNG"));
 			}
 		});
 	}

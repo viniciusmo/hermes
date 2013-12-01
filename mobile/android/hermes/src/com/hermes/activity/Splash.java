@@ -2,6 +2,7 @@ package com.hermes.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import com.hermes.R;
 import com.hermes.reflection.AnnotatedActivity;
@@ -17,6 +18,7 @@ public class Splash extends AnnotatedActivity {
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		ApplicationContext.setContext(this);
 		new Thread() {
 			public void run() {
